@@ -1,0 +1,384 @@
+/* features.css */
+
+.advanced-learning-section {
+    padding: 3rem 0 2rem 0;
+    background: none;
+}
+
+.advanced-learning-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+    margin-top: 1.5rem;
+    overflow-x: auto;
+    min-width: 900px;
+    width: 100%;
+}
+
+.advanced-learning-section {
+    overflow-x: auto;
+}
+
+@media (max-width: 1100px) {
+    .advanced-learning-container {
+        min-width: 900px;
+        width: 100%;
+    }
+}
+
+
+.advanced-feature {
+    position: relative;
+    height: 350px;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    color: #fff;
+    text-align: center;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 320px;
+    max-width: 420px;
+    margin: 0 auto;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.advanced-feature:nth-child(2) {
+    background-image: linear-gradient(135deg,rgba(40,40,80,0.52),rgba(0,0,0,0.45)), url('https://images.unsplash.com/photo-1516979187457-637abb4f9353?auto=format&fit=crop&w=600&q=80');
+}
+.advanced-feature:nth-child(3) {
+    background-image: linear-gradient(135deg,rgba(40,40,80,0.52),rgba(0,0,0,0.45)), url('https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80');
+}
+.advanced-feature:nth-child(4) {
+    background-image: linear-gradient(135deg,rgba(40,40,80,0.52),rgba(0,0,0,0.45)), url('https://images.unsplash.com/photo-1521737852567-6949f3f9f2b5?auto=format&fit=crop&w=600&q=80');
+}
+.advanced-feature::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(0,0,0,0.38) 55%, rgba(0,0,0,0.48) 100%);
+    z-index: 1;
+    pointer-events: none;
+}
+.advanced-feature-logo {
+    z-index: 2;
+    margin-bottom: 1.1rem;
+}
+.advanced-feature-logo-img {
+    filter: brightness(0) invert(1) drop-shadow(0 2px 8px rgba(0,0,0,0.25));
+
+    width: 54px;
+    height: 54px;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 8px rgba(0,0,0,0.25));
+}
+.advanced-feature-content {
+    z-index: 2;
+}
+.advanced-feature-content h3, .advanced-feature-content p {
+    position: relative;
+    z-index: 2;
+}
+
+.advanced-feature:hover {
+    transform: translateY(-10px) scale(1.025);
+    box-shadow: 0 16px 40px 0 rgba(0,0,0,0.19), 0 0 0 6px rgba(255,255,255,0.10);
+    background: rgba(40, 45, 80, 0.97);
+}
+.advanced-feature-icon {
+    font-size: 2.7rem;
+    margin-bottom: 1.2rem;
+    filter: drop-shadow(0 2px 8px rgba(0,0,0,0.25));
+}
+.advanced-feature-content h3 {
+    font-size: 1.45rem;
+    font-family: 'Amiri', serif;
+    margin-bottom: 0.7rem;
+    color: #fff;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.18), 0 0px 2px #fff;
+}
+.advanced-feature-content p {
+    color: #fff;
+    font-size: 1.07rem;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.13);
+    margin-bottom: 0;
+}
+
+
+
+.feature-item h3,
+.feature-item p,
+.feature-item i {
+    color: #fff !important;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.22), 0 0px 2px #fff !important;
+}
+
+
+.feature-item,
+.feature-item *,
+.feature-item:link,
+.feature-item:visited,
+.feature-item:hover,
+.feature-item:active {
+    text-decoration: none !important;
+    color: inherit !important;
+}
+
+
+/* Essential Swiper layout styles */
+.swiper-button-next,
+.swiper-button-prev {
+    color: #fff !important;
+    z-index: 10 !important;
+    display: block !important;
+    opacity: 0.92 !important;
+    width: 46px !important;
+    height: 46px !important;
+    background: transparent !important;
+    border-radius: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    box-shadow: 0 2px 12px 0 rgba(30, 58, 138, 0.16);
+    border: none;
+}
+
+.swiper {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.swiper-wrapper {
+    display: flex;
+
+    box-sizing: content-box;
+}
+
+.swiper-slide {
+    flex-shrink: 0;
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+}
+
+
+.feature-item {
+    position: relative;
+    height: 350px;
+    cursor: pointer;
+    padding: 40px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    color: #fff;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    text-align: center;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    border-radius: 2.5rem;
+    border: 1.5px solid rgba(255, 255, 255, 0.22);
+
+    background: rgba(255, 255, 255, 0.05);
+    filter: brightness(1.12);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 320px;
+    max-width: 420px;
+    margin: 0 auto;
+}
+
+
+.feature-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+
+    transform: translateY(-10px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+
+    filter: brightness(1.38) saturate(1.23);
+    transform: translateY(-12px) scale(1.045);
+    box-shadow: 0 18px 44px 0 rgba(0, 0, 0, 0.18), 0 0 0 6px rgba(255, 255, 255, 0.16);
+
+    filter: brightness(1.38) saturate(1.23);
+    transform: translateY(-12px) scale(1.035);
+    box-shadow: 0 18px 44px 0 rgba(0, 0, 0, 0.18), 0 0 0 6px rgba(255, 255, 255, 0.16);
+
+    background: rgba(255, 255, 255, 0.15);
+    filter: brightness(1.13);
+
+    transform: translateY(-10px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+.feature-item {
+    min-width: 0;
+    max-width: 96%;
+}
+
+@media (max-width: 1024px) {
+    .swiper {
+        padding-left: 1vw;
+        padding-right: 1vw;
+    }
+
+    .feature-item {
+        max-width: 97vw;
+        min-height: 220px;
+    }
+}
+
+@media (max-width: 700px) {
+    .feature-item {
+        max-width: 99vw;
+        padding: 1.2rem 0.7rem 1.2rem 0.7rem;
+        min-height: 160px;
+    }
+}
+
+@media (max-width: 500px) {
+    .feature-item {
+        max-width: 99vw;
+        padding: 0.7rem 0.2rem 0.7rem 0.2rem;
+        min-height: 120px;
+    }
+}
+
+.feature-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 60%, rgba(255, 255, 255, 0.18) 100%), rgba(0, 0, 0, 0.18);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.feature-item i {
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 20px;
+}
+
+.feature-item:hover i {
+    transform: scale(1.1);
+}
+
+.feature-item h3 {
+    font-family: 'Amiri', serif;
+    font-size: 2rem;
+    margin-bottom: 15px;
+    color: rgba(255, 255, 255, 0.95);
+}
+
+.feature-item p {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+
+#prayer-times-card {
+    background-image: url('imad-alassiry-saXv_KKEWys-unsplash\ \(1\).jpg');
+    /* Person praying on red carpet */
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+#tasbeeh-card {
+    background-image: url('https://images.pexels.com/photos/7249191/pexels-photo-7249191.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#calendar-card {
+    background-image: url('https://images.pexels.com/photos/24030824/pexels-photo-24030824/free-photo-of-islamic-pattern-in-temple.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#qibla-card {
+    background-image: url('https://images.pexels.com/photos/28209449/pexels-photo-28209449/free-photo-of-kaaba.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#imaan-card {
+    background-image: url('https://images.pexels.com/photos/31741579/pexels-photo-31741579/free-photo-of-contemplative-moment-inside-a-quiet-mosque.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#dua-card {
+    background-image: url('https://images.pexels.com/photos/8748306/pexels-photo-8748306.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#quran-card {
+    background-image: url('https://images.pexels.com/photos/10336482/pexels-photo-10336482.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#articles-card {
+    background-image: url('https://images.unsplash.com/photo-1521587760476-6c12a4b040da?q=80&w=2070&auto=format&fit=crop');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#hadith-feature {
+    background-image: url('https://images.pexels.com/photos/30560588/pexels-photo-30560588.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#reminders-feature {
+    background-image: url('https://images.pexels.com/photos/1631676/pexels-photo-1631676.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.feature-item i {
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 20px;
+}
+
+.feature-item:hover i {
+    transform: scale(1.1);
+}
+
+.feature-item h3 {
+    font-family: 'Amiri', serif;
+    font-size: 2rem;
+    margin-bottom: 15px;
+    color: rgba(255, 255, 255, 0.95);
+}
+
+.feature-item p {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.85);
+}

@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Light of Islam - Your comprehensive Islamic resource for Quran, prayer times, dua, hadith, reminders, and more. Explore knowledge, community, and tools to enrich your faith journey." />
+  <meta name="keywords"
+    content="Islam, Quran, Prayer Times, Dua, Hadith, Islamic Calendar, Qibla, Imaan, Knowledge, Community, Books, Learning" />
+  <meta name="author" content="Light of Islam Team" />
+  <meta property="og:title" content="Light of Islam - Your Guide to Faith" />
+  <meta property="og:description"
+    content="Discover Quran, prayer times, dua, hadith, reminders, and more. Join the Light of Islam community." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://your-domain.com/" />
+  <meta property="og:image"
+    content="https://images.unsplash.com/photo-1519817650390-64a93db51149?ixlib=rb-4.0.3&auto=format&fit=crop&w=687&q=80" />
+  <title>Light of Islam | Quran, Prayer Times, Dua, Hadith & More</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="features.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;500;700&family=Scheherazade+New:wght@400;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <div class="header-left">
+        <button class="three-dot-button" id="open-menu-button">
+          <i class="fas fa-bars"></i>
+        </button>
+        <a href="#" class="logo">
+          <i class="fas fa-moon"></i>
+          <h1>Light of Islam</h1>
+        </a>
+      </div>
+      <div class="header-right">
+        <div class="explore-dropdown">
+          <button class="explore-dropdown-btn">
+            <i class="fas fa-compass"></i> Explore Our Paths <i class="fas fa-caret-down"></i>
+          </button>
+          <div class="explore-dropdown-content">
+            <a href="sisters-corner.html"><i class="fas fa-female"></i> Sisters' Corner</a>
+            <a href="kids-corner.html"><i class="fas fa-child"></i> Kids' Corner</a>
+            <a href="ilm.html"><i class="fas fa-lightbulb"></i> Ilm</a>
+            <a href="guidance.html"><i class="fas fa-compass"></i> Guidance</a>
+          </div>
+        </div>
+        <div class="features-dropdown">
+          <button class="explore-dropdown-btn">
+            <i class="fas fa-star"></i> Features <i class="fas fa-caret-down"></i>
+          </button>
+          <div class="explore-dropdown-content">
+            <a href="prayer-times.html"><i class="fas fa-clock"></i> Prayer Times</a>
+            <a href="quran.html"><i class="fas fa-book-quran"></i> Quran</a>
+            <a href="tasbeeh.html"><i class="fas fa-dharmachakra"></i> Tasbeeh Counter</a>
+            <a href="calendar.html"><i class="fas fa-calendar-alt"></i> Islamic Calendar</a>
+            <a href="qibla.html"><i class="fas fa-kaaba"></i> Qibla Direction</a>
+            <a href="imaan.html"><i class="fas fa-chart-line"></i> Imaan Tracker</a>
+            <a href="dua.html"><i class="fas fa-praying-hands"></i> Dua</a>
+            <a href="hadith.html"><i class="fas fa-book-open"></i> Hadith</a>
+            <a href="reminders.html"><i class="fas fa-bell"></i> Reminders</a>
+          </div>
+        </div>
+        <a href="#login" class="login-btn">Sign In</a>
+        <button id="dark-mode-toggle" class="theme-toggle">
+          <i class="fas fa-moon"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Slide Menu -->
+  <div id="slide-menu" class="slide-menu">
+    <div class="slide-menu-header">
+      <h2 class="menu-title">Menu</h2>
+      <button id="close-menu-button" class="close-menu-button">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <nav class="slide-menu-nav">
+      <div class="nav-section">
+        <h3 class="nav-section-title">Navigation</h3>
+        <div class="nav-links">
+
+
+          <a href="#hero" class="nav-link"><i class="fas fa-home"></i> Home</a>
+          <a href="#verse-of-the-day" class="nav-link"><i class="fas fa-book-open"></i> Verse of the Day</a>
+          <a href="#features" class="nav-link"><i class="fas fa-star"></i> Features</a>
+          <a href="#community" class="nav-link"><i class="fas fa-users"></i> Explore Your Path</a>
+          <a href="#contact" class="nav-link"><i class="fas fa-envelope"></i> Contact</a>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+  <!-- Backdrop -->
+  <div id="backdrop" class="backdrop"></div>
+
+  <main>
+    <div class="bismillah-arabic">بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ</div>
+    <section id="hero" class="hero">
+      <div class="container hero-container hero-flex">
+        <div class="hero-text">
+          <div class="hero-icon">
+            <i class="fas fa-moon"></i>
+          </div>
+          <h1>"TURN TO ALLAH<br />BEFORE YOU RETURN<br />TO ALLAH."</h1>
+          <p>
+            The Heart That Beats For Allah Is Always A Stranger Among The<br />Hearts That Beat For The Dunya (World).
+          </p>
+          <a href="#" class="btn">Explore</a>
+        </div>
+        <div class="hero-image">
+          <img
+            src="https://images.unsplash.com/photo-1519817650390-64a93db51149?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+            alt="Islamic mosque interior" class="hero-img-right" />
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+      <div class="container about-flex">
+        <div class="about-images">
+          <img src="https://t4.ftcdn.net/jpg/02/72/48/61/240_F_272486113_Yd8x5uChPITiOp3HTMOZEk0maH7rCnzb.jpg"
+            alt="Mosque" class="about-img-main" />
+          <img src="https://t4.ftcdn.net/jpg/07/76/10/05/240_F_776100564_uvVjFxooIJ0r71dsJTIsuPV0H7WBohSr.jpg"
+            alt="Minaret" class="about-img-secondary" />
+        </div>
+        <div class="about-text">
+          <span class="about-label">About Us</span>
+          <h2 class="about-title">Welcome to Light Of Islam.</h2>
+          <p>Lorem ipsum dolor sit amet consectetur. Eget leo hac mauris aliquam luctus ut nascetur. Nunc sit odio
+            tempor massa dui non. Quam nisi sagittis non tincidunt. Eu dolor gravida mattis sagittis aliquet eu tellus
+            maecenas. Nisi a mattis ultrices id arcu massa nec leo non. Eget pretium nam felis eget varius faucibus
+            velit. Malesuada facilisis habitasse eget tellus tristique turpis scelerisque lacus. Habitant vivamus ut et
+            augue. Non id amet ut.</p>
+        </div>
+      </div>
+    </section>
+
+
+    <section id="verse-of-the-day" class="verse-of-the-day">
+      <div class="container">
+        <h2>Verse of the Day</h2>
+        <div class="verse-rect-line"></div>
+        <blockquote class="quran-verse">
+          <p>"And He is with you wherever you are."</p>
+          <footer>- Quran 57:4</footer>
+        </blockquote>
+        <div class="verse-rect-line"></div>
+      </div>
+    </section>
+
+    <section id="features" class="features">
+      <div class="container">
+        <h2>Key Features</h2>
+        <div class="swiper feature-slider">
+          <noscript>
+            <div class="swiper-fallback">
+              <p style="color: #b91c1c; background: #fffbe7; padding: 1em; border-radius: 6px; text-align: center;">
+                <strong>JavaScript is disabled.</strong> Some interactive features, such as the feature slider, require
+                JavaScript to function. Here are the key features:
+              </p>
+              <ul class="feature-fallback-list" style="list-style: none; padding: 0;">
+                <li><i class="fas fa-clock"></i> Prayer Times: Accurate prayer times for your location.</li>
+                <li><i class="fas fa-book-quran"></i> Quran: Read and listen to the Holy Quran.</li>
+                <li><i class="fas fa-dharmachakra"></i> Tasbeeh Counter: Keep track of your dhikr and prayers.</li>
+                <li><i class="fas fa-calendar-alt"></i> Islamic Calendar: Stay updated with important Islamic dates.
+                </li>
+                <li><i class="fas fa-kaaba"></i> Qibla Direction: Find the direction of the Kaaba from anywhere.</li>
+                <li><i class="fas fa-chart-line"></i> Imaan Tracker: Monitor and strengthen your faith journey.</li>
+                <li><i class="fas fa-praying-hands"></i> Dua: A collection of supplications for all occasions.</li>
+                <li><i class="fas fa-book-open"></i> Hadith: Reflect on the sayings and traditions of the Prophet
+                  Muhammad (PBUH).</li>
+                <li><i class="fas fa-bell"></i> Reminders: Receive gentle reminders to help you stay connected to your
+                  faith throughout the day.</li>
+              </ul>
+            </div>
+          </noscript>
+          <div class="swiper-wrapper">
+            <a href="prayer-times.html" class="swiper-slide feature-item" id="prayer-times-card">
+              <i class="fas fa-clock fa-3x"></i>
+              <h3>Prayer Times</h3>
+              <p>Accurate prayer times for your location.</p>
+            </a>
+            <a href="quran.html" class="swiper-slide feature-item" id="quran-card">
+              <i class="fas fa-book-quran fa-3x"></i>
+              <h3>Quran</h3>
+              <p>Read and listen to the Holy Quran.</p>
+            </a>
+            <a href="tasbeeh.html" class="swiper-slide feature-item" id="tasbeeh-card">
+              <i class="fas fa-dharmachakra fa-3x"></i>
+              <h3>Tasbeeh Counter</h3>
+              <p>Keep track of your dhikr and prayers.</p>
+            </a>
+            <a href="calendar.html" class="swiper-slide feature-item" id="calendar-card">
+              <i class="fas fa-calendar-alt fa-3x"></i>
+              <h3>Islamic Calendar</h3>
+              <p>Stay updated with important Islamic dates.</p>
+            </a>
+            <a href="qibla.html" class="swiper-slide feature-item" id="qibla-card">
+              <i class="fas fa-kaaba fa-3x"></i>
+              <h3>Qibla Direction</h3>
+              <p>Find the direction of the Kaaba from anywhere.</p>
+            </a>
+            <a href="imaan.html" class="swiper-slide feature-item" id="imaan-card">
+              <i class="fas fa-chart-line fa-3x"></i>
+              <h3>Imaan Tracker</h3>
+              <p>Monitor and strengthen your faith journey.</p>
+            </a>
+            <a href="dua.html" class="swiper-slide feature-item" id="dua-card">
+              <i class="fas fa-praying-hands fa-3x"></i>
+              <h3>Dua</h3>
+              <p>A collection of supplications for all occasions.</p>
+            </a>
+            <a href="hadith.html" class="swiper-slide feature-item" id="hadith-feature">
+              <i class="fas fa-book-open fa-3x"></i>
+              <h3>Hadith</h3>
+              <p>
+                Reflect on the sayings and traditions of the Prophet Muhammad
+                (PBUH).
+              </p>
+            </a>
+
+            <a href="reminders.html" class="swiper-slide feature-item" id="reminders-feature">
+              <i class="fas fa-bell fa-3x"></i>
+              <h3>Reminders</h3>
+              <p>
+                Receive gentle reminders to help you stay connected to your
+                faith throughout the day.
+              </p>
+            </a>
+          </div>
+          <!-- Add Pagination -->
+          <div class="swiper-pagination"></div>
+          <!-- Add Navigation -->
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+        </div>
+      </div>
+    </section>
+
+
+
+    </section>
+      <!-- Islam Intro Section -->
+      <section class="explore-paths-section islam-intro-section">
+        <p class="explore-section-label">ISLAM</p>
+        <h2 class="explore-section-title">What is Islam?</h2>
+        <p class="explore-intro-desc">Islam is a complete way of life, guiding humanity with faith, compassion, and purpose.</p>
+      </section>
+      <!-- Five Pillars Section -->
+    <section id="pillars" class="pillars-section">
+      <p class="pillars-section-label"></p>
+      <h2 class="pillars-section-title">THE FIVE PILLARS OF ISLAM</h2>
+      <div class="pillars-grid">
+        <div class="pillar-card">
+          <img src="https://t4.ftcdn.net/jpg/07/16/30/65/240_F_716306547_6vZTUi266q9dAcH3uszUfPilf3SiTNyq.jpg"
+            alt="Shahadah - Declaration of Faith" class="pillar-img" />
+          <div class="pillar-title">SHAHADAH</div>
+        </div>
+        <div class="pillar-card">
+          <img src="https://t3.ftcdn.net/jpg/12/04/88/44/240_F_1204884408_CkTCM5qYVLxSkJCADfF2g04vOTjsSz3t.jpg"
+            alt="Salah - Prayer" class="pillar-img" />
+          <div class="pillar-title">SALAH</div>
+        </div>
+        <div class="pillar-card">
+          <img src="https://t3.ftcdn.net/jpg/08/02/45/32/240_F_802453288_ELGkKgD2lSYQxS4sSBCefm9HDanC4Q2n.jpg"
+            alt="Sawm - Fasting" class="pillar-img" />
+          <div class="pillar-title">SAWM</div>
+        </div>
+        <div class="pillar-card">
+          <img src="https://t4.ftcdn.net/jpg/03/49/75/19/240_F_349751954_ZRX7xD6DJSqnVVXte1BzSsfZDmpwWc7v.jpg"
+            alt="Zakah - Almsgiving" class="pillar-img" />
+          <div class="pillar-title">ZAKAH</div>
+        </div>
+        <div class="pillar-card">
+          <img src="https://t4.ftcdn.net/jpg/13/92/20/05/240_F_1392200553_e7IlPWE1oyNp7iCKHUgXoMnW5JUbbxdM.jpg"
+            alt="Hajj - Pilgrimage" class="pillar-img" />
+          <div class="pillar-title">HAJJ</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Explore Our Paths Section -->
+    <section id="explore-paths" class="explore-paths-section">
+      <div class="container">
+        <p class="explore-section-label">EXPLORE</p>
+        <h2 class="explore-section-title">Explore Our Paths</h2>
+        <div class="explore-paths-grid">
+           <div class="explore-card sisters-bg">
+             <i class="fas fa-female fa-2x"></i>
+             <h3>Sisters' Corner</h3>
+             <p>A special space for Muslim sisters to learn, connect, and grow together in faith.</p>
+           </div>
+           <div class="explore-card kids-bg">
+             <i class="fas fa-child fa-2x"></i>
+             <h3>Kids' Corner</h3>
+             <p>Fun, stories, and activities for children to discover Islam in a joyful way.</p>
+           </div>
+           <div class="explore-card ilm-bg">
+             <i class="fas fa-lightbulb fa-2x"></i>
+             <h3>Ilm</h3>
+             <p>Expand your knowledge of Islam with articles, lectures, and authentic resources.</p>
+           </div>
+           <div class="explore-card guidance-bg">
+             <i class="fas fa-compass fa-2x"></i>
+             <h3>Guidance</h3>
+             <p>Find spiritual advice and practical guidance for every stage of your journey.</p>
+           </div>
+        </div>
+      </div>
+    </section>
+
+    <footer id="contact">
+      <div class="container">
+        <p class="jazakallah">جَزَاكُمُ ٱللَّٰهُ خَيْرًا</p>
+        <p>&copy; 2025 Light of Islam. All Rights Reserved.</p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+</body>
+
+</html>

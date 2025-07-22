@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prayer Times</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+</head>
+
+<body
+  class="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#f1eddb] via-[#ddd5b8] to-[#cdc4a6] text-[#1E3A8A]">
+  <style>
+    .fade-in-card {
+      animation: fadeInUp 1s cubic-bezier(.39, .575, .565, 1.000) both;
+    }
+
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    .fade-in-row {
+      opacity: 0;
+      animation: fadeInRow 0.8s forwards;
+    }
+
+    @keyframes fadeInRow {
+      from {
+        opacity: 0;
+        transform: translateY(24px);
+      }
+
+      to {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+
+  <div class="max-w-xl w-full bg-[#fffbe6] shadow-2xl rounded-3xl p-8 fade-in-card border border-[#ede3bf]"
+    style="box-shadow: 0 8px 32px 0 #cdc4a633, 0 2.5px 12px 0 #1E3A8A13;">
+    <h1 class="text-4xl font-extrabold mb-6 text-center text-[#1E3A8A]" style="font-family: 'Scheherazade New', serif;">
+      🕌 Today's Prayer Times
+    </h1>
+    <div class="grid grid-cols-3 gap-4 text-xl">
+      <div class="font-semibold fade-in-row" style="animation-delay:0.1s">Fajr</div>
+      <div id="fajr" class="fade-in-row" style="animation-delay:0.2s">--</div>
+      <button class="prayer-bell fade-in-row" style="animation-delay:0.21s" data-prayer="Fajr"
+        aria-label="Toggle Fajr notification">🔕</button>
+
+      <div class="font-semibold fade-in-row" style="animation-delay:0.3s">Dhuhr</div>
+      <div id="dhuhr" class="fade-in-row" style="animation-delay:0.4s">--</div>
+      <button class="prayer-bell fade-in-row" style="animation-delay:0.41s" data-prayer="Dhuhr"
+        aria-label="Toggle Dhuhr notification">🔕</button>
+
+      <div class="font-semibold fade-in-row" style="animation-delay:0.5s">Asr</div>
+      <div id="asr" class="fade-in-row" style="animation-delay:0.6s">--</div>
+      <button class="prayer-bell fade-in-row" style="animation-delay:0.61s" data-prayer="Asr"
+        aria-label="Toggle Asr notification">🔕</button>
+
+      <div class="font-semibold fade-in-row" style="animation-delay:0.7s">Maghrib</div>
+      <div id="maghrib" class="fade-in-row" style="animation-delay:0.8s">--</div>
+      <button class="prayer-bell fade-in-row" style="animation-delay:0.81s" data-prayer="Maghrib"
+        aria-label="Toggle Maghrib notification">🔕</button>
+
+      <div class="font-semibold fade-in-row" style="animation-delay:0.9s">Isha</div>
+      <div id="isha" class="fade-in-row" style="animation-delay:1.0s">--</div>
+      <button class="prayer-bell fade-in-row" style="animation-delay:1.01s" data-prayer="Isha"
+        aria-label="Toggle Isha notification">🔕</button>
+    </div>
+
+    <div class="mt-6 text-center text-lg text-[#6b5e34]">
+      ⏰ Next Prayer: <span id="next-prayer-name" class="font-bold"></span> in <span id="countdown"
+        class="font-bold"></span>
+    </div>
+
+    <hr class="my-6 border-[#ede3bf]">
+
+    <div class="text-center text-sm text-[#bfae7c]">
+      <p id="location-info">Detecting location...</p>
+      <p id="error-message" class="text-red-600 mt-2"></p>
+    </div>
+  </div>
+
+  <script>
+    async function fetchPrayerTimes(lat, lon) {
+      const url = `https://api.aladhan.com/v1/timings?latitude=${lat}&longitude=${lon}&method=2`;
+      try {
+        const response = await fetch(url);
+        const data = await response.json();
+        const timings = data.data.timings;
+
+        const prayerTimes = {
+          Fajr: timings.Fajr,
+          Dhuhr: timings.Dhuhr,
+          Asr: timings.Asr,
+          Maghrib: timings.Maghrib,
+          Isha: timings.Isha
+        };
+
+        for (const key in prayerTimes) {
+          document.getElementById(key.toLowerCase()).textContent = prayerTimes[key];
+        }
+
+        document.getElementById("location-info").textContent = `Location: ${data.data.meta.timezone}`;
+        startCountdown(prayerTimes);
+      } catch (error) {
+        document.getElementById("error-message").textContent = "Error loading prayer times.";
+      }
+    }
+
+    function getUserLocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          (position) => {
+            const lat = position.coords.latitude;
+            const lon = position.coords.longitude;
+            fetchPrayerTimes(lat, lon);
+          },
+          () => {
+            document.getElementById("location-info").textContent = "Location permission denied.";
+            fetchPrayerTimes(11.2588, 75.7804); // Default to Kozhikode
+          }
+        );
+      } else {
+        document.getElementById("location-info").textContent = "Geolocation not supported.";
+        fetchPrayerTimes(11.2588, 75.7804);
+      }
+    }
+
+    // --- Notification Bell Button Logic ---
+    const PRAYER_LIST = ["Fajr", "Dhuhr", "Asr", "Maghrib", "Isha"];
+    function getEnabledPrayers() {
+      try {
+        return JSON.parse(localStorage.getItem("enabledPrayers")) || {};
+      } catch {
+        return {};
+      }
+    }
+    function setEnabledPrayers(obj) {
+      localStorage.setItem("enabledPrayers", JSON.stringify(obj));
+    }
+    function updateBellButtons() {
+      const enabled = getEnabledPrayers();
+      document.querySelectorAll('.prayer-bell').forEach(btn => {
+        const prayer = btn.getAttribute('data-prayer');
+        if (enabled[prayer]) {
+          btn.textContent = '🔔';
+          btn.classList.add('active');
+        } else {
+          btn.textContent = '🔕';
+          btn.classList.remove('active');
+        }
+      });
+    }
+    document.addEventListener('DOMContentLoaded', () => {
+      updateBellButtons();
+      document.querySelectorAll('.prayer-bell').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const prayer = btn.getAttribute('data-prayer');
+          let enabled = getEnabledPrayers();
+          enabled[prayer] = !enabled[prayer];
+          setEnabledPrayers(enabled);
+          updateBellButtons();
+          if (enabled[prayer]) {
+            // Ask notification permission if not already granted
+            if ('Notification' in window && Notification.permission !== 'granted') {
+              Notification.requestPermission();
+            }
+          }
+        });
+      });
+    });
+
+    // --- END Notification Bell Button Logic ---
+
+    let prayerTimes;
+    let notifiedToday = {};
+    let adhanPlayedToday = {};
+
+    function startCountdown(prayerTimes) {
+      function updateCountdown() {
+        const now = new Date();
+        const today = now.toISOString().split('T')[0];
+
+        // Build a list of prayer times as Date objects
+        const times = Object.entries(prayerTimes).map(([name, time]) => {
+          let date = new Date(`${today}T${time}:00`);
+          // If Fajr and already passed, set to tomorrow
+          if (name === 'Fajr' && now > date) {
+            date.setDate(date.getDate() + 1);
+          }
+          // For all others, if already passed, set to tomorrow
+          if (date < now) {
+            date.setDate(date.getDate() + 1);
+          }
+          return { name, time: date };
+        });
+
+        // Sort by soonest
+        times.sort((a, b) => a.time - b.time);
+
+        const next = times.find(p => p.time > now);
+        if (next) {
+          const diffMs = next.time - now;
+          const hours = String(Math.floor(diffMs / (1000 * 60 * 60))).padStart(2, '0');
+          const minutes = String(Math.floor((diffMs / (1000 * 60)) % 60)).padStart(2, '0');
+          const seconds = String(Math.floor((diffMs / 1000) % 60)).padStart(2, '0');
+
+          document.getElementById("next-prayer-name").textContent = next.name;
+          document.getElementById("countdown").textContent = `${hours}:${minutes}:${seconds}`;
+        }
+      }
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
+    }
+
+    window.onload = getUserLocation;
+  </script>
