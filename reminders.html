@@ -2,13 +2,94 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Reminders</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    .reminders-header.small-header {
+      margin-top: 0.8em;
+      margin-bottom: 0.5em;
+      text-align: center;
+    }
+    .reminders-header.small-header h1 {
+      font-size: 1.25em;
+      color: #b4913e;
+      margin: 0.2em 0 0.2em 0;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      line-height: 1.1;
+    }
+  </style>
 </head>
-<body>
-  <h1>Reminders</h1>
-  <p>This is the Reminders feature page.</p>
-  <a href="index.html">Back to Home</a>
+<body class="reminders-bg">
+  <a href="index.html" class="back-home-btn"><i class="fas fa-arrow-left"></i> Home</a>
+  <header class="reminders-header small-header">
+    <h1>🕌 Islamic Reminders</h1>
+  </header>
+  <section class="today-reminder-spotlight">
+    <div class="spotlight-card animate-spotlight" id="spotlightCard">
+      <h2 id="spotlightTitle">Today's Reminders</h2>
+      <ul id="spotlightList">
+        <li>Loading...</li>
+      </ul>
+    </div>
+  </section>
+  <main class="reminders-main compact-main">
+    <section class="reminder-card" id="imaanBoost">
+      <h2>🌙 Daily Imaan Boost</h2>
+      <ul>
+        <li>Pray 2 rakats of Duha today 🌤️</li>
+        <li>Make istighfar 100 times</li>
+        <li id="imaanTimeAlert">Morning/Evening alert</li>
+      </ul>
+    </section>
+    <section class="reminder-card" id="prayerReminders">
+      <h2>🕋 Prayer Reminders</h2>
+      <div id="prayerCountdown">Time left for next Salah: <span>--:--</span></div>
+      <div id="prayerTimes">Auto sync with prayer time API</div>
+    </section>
+    <section class="reminder-card" id="sunnahReminders">
+      <h2>🕯️ Sunnah Reminders</h2>
+      <ul>
+        <li>Trim nails (Friday Sunnah)</li>
+        <li>Read Surah Kahf – It’s Friday!</li>
+        <li>Use miswak before Dhuhr</li>
+      </ul>
+    </section>
+    <section class="reminder-card" id="dailyHadithAyah">
+      <h2>📖 Daily Hadith / Ayah</h2>
+      <div id="dailyHadith">Hadith of the Day: <span>--</span></div>
+      <div id="dailyAyah">Quran Ayah of the Day: <span>--</span></div>
+      <a href="#" id="tafsirLink">Read full Tafsir</a>
+    </section>
+    <section class="reminder-card" id="todoReminders">
+      <h2>✅ Task / To-Do</h2>
+      <ul>
+        <li>Study for exam 📚</li>
+        <li>Call parents ❤️</li>
+        <li>Submit assignment</li>
+      </ul>
+    </section>
+    <section class="reminder-card" id="selfCare">
+      <h2>🧘 Self-care / Habit Tracker</h2>
+      <ul>
+        <li>Drink water 💧</li>
+        <li>Stretch 5 min 🧘</li>
+        <li>Gratitude: Write 1 thing you’re thankful for</li>
+      </ul>
+    </section>
+    <section class="reminder-card" id="customNotifications">
+      <h2>🔔 Custom Notification</h2>
+      <div id="customReminderSetup">Set your own reminder text + time<br><small>(Daily/Weekly repeat coming soon)</small></div>
+    </section>
+    <section class="reminder-card" id="motivationQuotes">
+      <h2>🧠 Motivational Quotes</h2>
+      <blockquote id="motivationalQuote">“Don’t lose hope in Allah’s mercy – Qur'an 39:53”</blockquote>
+    </section>
+  </main>
+  <link rel="stylesheet" href="reminders.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"></script>
+  <script src="reminders.js"></script>
 </body>
 </html>

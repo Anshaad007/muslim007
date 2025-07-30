@@ -1,0 +1,301 @@
+body.tasbeeh-bg {
+  background: linear-gradient(135deg, #f6f3ea 0%, #e3d7b5 100%);
+  min-height: 100vh;
+  font-family: 'Poppins', 'Cairo', sans-serif;
+  color: #6b4f28;
+}
+
+.back-home-btn {
+  position: fixed;
+  top: 1.2em;
+  left: 1.2em;
+  z-index: 3000;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  background: rgba(255, 248, 232, 0.93);
+  color: #e0b84c;
+  font-weight: 700;
+  font-size: 1.08em;
+  border-radius: 2em;
+  box-shadow: 0 2px 14px #e0b84c22, 0 1px 6px #67463611;
+  padding: 0.55em 1.5em 0.55em 1.1em;
+  text-decoration: none;
+  border: 2px solid #e0b84c33;
+  transition: background 0.18s, color 0.18s, box-shadow 0.18s, transform 0.15s;
+  outline: none;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+}
+
+.back-home-btn i {
+  font-size: 1.18em;
+  margin-right: 0.2em;
+}
+
+.back-home-btn:hover,
+.back-home-btn:focus {
+  background: #e0b84c;
+  color: #fff8e8;
+  box-shadow: 0 4px 18px #e0b84c55;
+  transform: scale(1.06);
+}
+
+.back-home-btn:active {
+  background: #fff8e8;
+  color: #e0b84c;
+  transform: scale(0.98);
+}
+
+@media (max-width: 600px) {
+  .back-home-btn {
+    top: 0.5em;
+    left: 0.5em;
+    font-size: 1em;
+    padding: 0.4em 1em 0.4em 0.8em;
+  }
+}
+
+.tasbeeh-challenges {
+  margin: 0 auto 2.5em auto;
+  max-width: 600px;
+  background: rgba(255, 248, 232, 0.97);
+  border-radius: 1.5em;
+  box-shadow: 0 2px 12px #e0b84c22;
+  padding: 1.5em 2em 1.2em 2em;
+  text-align: center;
+  position: relative;
+}
+
+.tasbeeh-challenges h2 {
+  color: #b4913e;
+  font-size: 1.3em;
+  margin-bottom: 1.1em;
+  font-family: 'Poppins', sans-serif;
+}
+
+.challenge-card {
+  margin-bottom: 1.1em;
+  background: rgba(255, 255, 255, 0.78);
+  border-radius: 1em;
+  padding: 0.7em 1.2em;
+  box-shadow: 0 1px 8px #e0b84c11;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1em;
+  font-size: 1.08em;
+  position: relative;
+}
+
+.challenge-progress-bar {
+  flex: 1;
+  height: 13px;
+  background: #f7e8c1;
+  border-radius: 8px;
+  margin: 0 0.7em;
+  overflow: hidden;
+}
+
+.challenge-progress {
+  height: 100%;
+  background: linear-gradient(90deg, #e0b84c 60%, #b4913e 100%);
+  border-radius: 8px;
+  width: 0%;
+  transition: width 0.4s cubic-bezier(.4, 2, .5, 1), background 0.3s;
+}
+
+.challenge-badge {
+  font-size: 1.5em;
+  margin-left: 0.6em;
+  color: #e0b84c;
+  transition: transform 0.22s;
+}
+
+#challenge-celebration {
+  margin-top: 1em;
+  font-size: 1.4em;
+  color: #b4913e;
+  animation: pop-celebrate 0.7s cubic-bezier(.4, 2, .5, 1);
+}
+
+@keyframes pop-celebrate {
+  0% {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+
+  60% {
+    transform: scale(1.15);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.tasbeeh-count.pop {
+  animation: tasbeeh-pop 0.32s cubic-bezier(.4, 2, .5, 1);
+}
+
+@keyframes tasbeeh-pop {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.25);
+    color: #b4913e;
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.tasbeeh-card.glow {
+  box-shadow: 0 0 22px 4px #e0b84c99, 0 4px 24px #e0b84c22;
+  transition: box-shadow 0.28s;
+}
+
+.tasbeeh-increment:active {
+  background: #fff8e8;
+  color: #b4913e;
+  transform: scale(0.98) rotate(-2deg);
+}
+
+.tasbeeh-header {
+  text-align: center;
+  margin-top: 3.5em;
+  margin-bottom: 2em;
+}
+
+.tasbeeh-header h1 {
+  font-family: 'Scheherazade New', serif;
+  font-size: 2.3em;
+  color: #b4913e;
+  margin-bottom: 0.2em;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: 0.01em;
+  line-height: 1.15;
+}
+
+.tasbeeh-header p {
+  font-size: 1.15em;
+  color: #7b6335;
+  opacity: 0.92;
+}
+
+.tasbeeh-emoji {
+  font-size: 1.3em;
+}
+
+.tasbeeh-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2em;
+  max-width: 900px;
+  margin: 0 auto 2.5em auto;
+}
+
+.tasbeeh-card {
+  background: rgba(255, 248, 232, 0.93);
+  border-radius: 2.3em;
+  box-shadow: 0 4px 24px #e0b84c22, 0 1px 10px #67463611;
+  padding: 2.2em 2.5em 2em 2.5em;
+  min-width: 260px;
+  max-width: 320px;
+  text-align: center;
+  margin-bottom: 1em;
+  border: 2px solid #e0b84c33;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: box-shadow 0.18s, transform 0.16s;
+}
+
+.tasbeeh-card:hover {
+  box-shadow: 0 8px 32px #e0b84c44;
+  transform: translateY(-2px) scale(1.03);
+}
+
+.tasbeeh-phrase-ar {
+  font-family: 'Amiri', 'Scheherazade New', serif;
+  font-size: 2em;
+  color: #b4913e;
+  margin-bottom: 0.15em;
+  letter-spacing: 0.02em;
+}
+
+.tasbeeh-phrase-en {
+  font-size: 1.1em;
+  color: #7b6335;
+  margin-bottom: 1.1em;
+}
+
+.tasbeeh-meaning {
+  font-size: 0.98em;
+  color: #b4913e;
+  margin-left: 0.2em;
+}
+
+.tasbeeh-count {
+  font-size: 2.7em;
+  font-weight: bold;
+  color: #e0b84c;
+  margin-bottom: 1em;
+  text-shadow: 0 2px 10px #e0b84c22;
+  letter-spacing: 0.04em;
+}
+
+.tasbeeh-actions {
+  display: flex;
+  gap: 1.2em;
+  justify-content: center;
+}
+
+.tasbeeh-increment,
+.tasbeeh-reset {
+  background: linear-gradient(135deg, #e0b84c 60%, #fff8e8 100%);
+  color: #7b6335;
+  border: none;
+  border-radius: 1.5em;
+  font-size: 1.5em;
+  padding: 0.35em 1.1em;
+  margin: 0 0.1em;
+  cursor: pointer;
+  box-shadow: 0 2px 8px #e0b84c22;
+  transition: background 0.16s, color 0.16s, transform 0.14s;
+}
+
+.tasbeeh-increment:hover,
+.tasbeeh-reset:hover {
+  background: #b4913e;
+  color: #fff8e8;
+  transform: scale(1.08);
+}
+
+.tasbeeh-increment:active,
+.tasbeeh-reset:active {
+  background: #fff8e8;
+  color: #b4913e;
+  transform: scale(0.98);
+}
+
+@media (max-width: 900px) {
+  .tasbeeh-container {
+    gap: 1.1em;
+    max-width: 100%;
+    padding: 0 1em;
+  }
+
+  .tasbeeh-card {
+    min-width: 95vw;
+    max-width: 98vw;
+    padding: 1.5em 0.5em 1.3em 0.5em;
+  }
+}

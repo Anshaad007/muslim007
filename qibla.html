@@ -1,14 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Qibla Direction</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Premium Qibla Direction</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-<body>
-  <h1>Qibla Direction</h1>
-  <p>This is the Qibla Direction feature page.</p>
-  <a href="index.html">Back to Home</a>
+
+<body class="qibla-bg">
+  <a href="index.html" class="back-home-btn"><i class="fas fa-arrow-left"></i> Home</a>
+  <div class="qibla-header">
+    <h1>Qibla Direction Finder</h1>
+    <p>Find the direction of the Ka'bah from your location with advanced features.</p>
+  </div>
+  <div class="qibla-container">
+    <div class="qibla-card glassmorph">
+      <div id="location-status" class="qibla-location-status">Detecting your location...</div>
+      <div id="qibla-compass" class="qibla-compass">
+        <div class="compass-circle">
+          <!-- Cardinal directions -->
+          <div class="compass-mark compass-n">N</div>
+          <div class="compass-mark compass-e">E</div>
+          <div class="compass-mark compass-s">S</div>
+          <div class="compass-mark compass-w">W</div>
+          <!-- Tick marks -->
+          <div class="compass-ticks">
+            <div class="tick" style="transform: rotate(0deg) translateY(-85px);"></div>
+            <div class="tick" style="transform: rotate(30deg) translateY(-85px);"></div>
+            <div class="tick" style="transform: rotate(60deg) translateY(-85px);"></div>
+            <div class="tick" style="transform: rotate(90deg) translateY(-85px);"></div>
+            <div class="tick" style="transform: rotate(120deg) translateY(-85px);"></div>
+            <div class="tick" style="transform: rotate(150deg) translateY(-85px);"></div>
+            <div class="tick" style="transform: rotate(180deg) translateY(-85px);"></div>
+            <div class="tick" style="transform: rotate(210deg) translateY(-85px);"></div>
+            <div class="tick" style="transform: rotate(240deg) translateY(-85px);"></div>
+            <div class="tick" style="transform: rotate(270deg) translateY(-85px);"></div>
+            <div class="tick" style="transform: rotate(300deg) translateY(-85px);"></div>
+            <div class="tick" style="transform: rotate(330deg) translateY(-85px);"></div>
+          </div>
+          <!-- Qibla arrow and center -->
+          <div class="compass-arrow" id="compass-arrow"></div>
+          <div class="compass-center"></div>
+        </div>
+        <div class="compass-label">Qibla</div>
+      </div>
+      <div class="qibla-info">
+        <span id="qibla-angle"></span>
+        <span id="qibla-distance"></span>
+      </div>
+      <div id="geolocation-info">
+        <span id="latitude"></span>
+        <span id="longitude"></span>
+      </div>
+      <div id="manual-location" style="display:none;">
+        <label for="city-input">Enter your city:</label>
+        <input id="city-input" type="text" placeholder="e.g. Cairo, Istanbul" />
+        <button id="find-qibla-btn">Find Qibla</button>
+      </div>
+      <div class="qibla-hadith">
+        <span>“When you stand for prayer, face the direction of the Ka'bah.”</span><br>
+        <span class="qibla-ref">[Bukhari, Muslim]</span>
+      </div>
+    </div>
+  </div>
+  <footer class="qibla-sources">
+    <hr>
+
+  </footer>
+  <link rel="stylesheet" href="qibla.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"></script>
+  <script src="qibla.js"></script>
 </body>
+
 </html>

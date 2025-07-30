@@ -1,0 +1,226 @@
+body.qibla-bg {
+  background: linear-gradient(135deg, #f6f3ea 0%, #e3d7b5 100%);
+  min-height: 100vh;
+  font-family: 'Poppins', 'Cairo', sans-serif;
+  color: #6b4f28;
+}
+.back-home-btn {
+  position: fixed;
+  top: 1.2em;
+  left: 1.2em;
+  z-index: 3000;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  background: rgba(255, 248, 232, 0.93);
+  color: #e0b84c;
+  font-weight: 700;
+  font-size: 1.08em;
+  border-radius: 2em;
+  box-shadow: 0 2px 14px #e0b84c22, 0 1px 6px #67463611;
+  padding: 0.55em 1.5em 0.55em 1.1em;
+  text-decoration: none;
+  border: 2px solid #e0b84c33;
+  transition: background 0.18s, color 0.18s, box-shadow 0.18s, transform 0.15s;
+  outline: none;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+}
+.back-home-btn i {
+  font-size: 1.18em;
+  margin-right: 0.2em;
+}
+.back-home-btn:hover, .back-home-btn:focus {
+  background: #e0b84c;
+  color: #fff8e8;
+  box-shadow: 0 4px 18px #e0b84c55;
+  transform: scale(1.06);
+}
+.back-home-btn:active {
+  background: #fff8e8;
+  color: #e0b84c;
+  transform: scale(0.98);
+}
+.qibla-header {
+  text-align: center;
+  margin-top: 3.5em;
+  margin-bottom: 2em;
+}
+.qibla-header h1 {
+  font-family: 'Scheherazade New', serif;
+  font-size: 2.3em;
+  color: #b4913e;
+  margin-bottom: 0.2em;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  line-height: 1.15;
+}
+.qibla-header p {
+  font-size: 1.12em;
+  color: #7b6335;
+  opacity: 0.92;
+}
+.qibla-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 60vh;
+}
+.qibla-card {
+  background: rgba(255, 248, 232, 0.96);
+  border-radius: 2.3em;
+  box-shadow: 0 4px 24px #e0b84c22, 0 1px 10px #67463611;
+  padding: 2.2em 2.5em 2em 2.5em;
+  min-width: 320px;
+  max-width: 400px;
+  text-align: center;
+  border: 2px solid #e0b84c33;
+  margin-bottom: 2em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.qibla-location-status {
+  margin-bottom: 1.1em;
+  color: #b4913e;
+  font-weight: 600;
+}
+.qibla-compass {
+  margin: 1.5em 0 1em 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.compass-circle {
+  position: relative;
+  width: 180px;
+  height: 180px;
+  background: radial-gradient(ellipse at center, #fff8e8 60%, #e0b84c22 100%);
+  border-radius: 50%;
+  border: 4px solid #e0b84c44;
+  box-shadow: 0 0 16px #e0b84c22;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.compass-mark {
+  position: absolute;
+  font-size: 1.16em;
+  font-weight: 800;
+  color: #b4913e;
+  text-shadow: 0 1px 8px #fff8e8bb;
+  pointer-events: none;
+  user-select: none;
+}
+.compass-n { left: 50%; top: 8px; transform: translateX(-50%); }
+.compass-e { right: 8px; top: 50%; transform: translateY(-50%); }
+.compass-s { left: 50%; bottom: 8px; transform: translateX(-50%); }
+.compass-w { left: 8px; top: 50%; transform: translateY(-50%); }
+.compass-ticks {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+.tick {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 3px;
+  height: 18px;
+  background: #e0b84c99;
+  border-radius: 2px;
+  transform-origin: 50% 90%;
+  opacity: 0.85;
+}
+@media (max-width: 700px) {
+  .compass-circle {
+    width: 140px;
+    height: 140px;
+  }
+  .tick {
+    height: 13px;
+  }
+  .compass-mark {
+    font-size: 1em;
+  }
+}
+
+.compass-arrow {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 10px;
+  height: 70px;
+  background: linear-gradient(180deg, #e0b84c 60%, #b4913e 100%);
+  border-radius: 6px;
+  transform: translate(-50%, -100%) rotate(0deg);
+  box-shadow: 0 2px 10px #e0b84c33;
+  z-index: 2;
+  transition: transform 0.7s cubic-bezier(.4,2,.5,1);
+}
+.compass-center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 26px;
+  height: 26px;
+  background: #e0b84c;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  border: 3px solid #fff8e8;
+  box-shadow: 0 2px 8px #e0b84c44;
+  z-index: 3;
+}
+.compass-label {
+  margin-top: 0.8em;
+  font-size: 1.1em;
+  color: #b4913e;
+  font-weight: 600;
+}
+.qibla-info {
+  margin: 1.1em 0 0.7em 0;
+  font-size: 1.05em;
+  color: #7b6335;
+  min-height: 2em;
+}
+.qibla-hadith {
+  margin-top: 1.3em;
+  background: rgba(255,255,255,0.78);
+  border-radius: 1em;
+  padding: 0.7em 1.2em;
+  box-shadow: 0 1px 8px #e0b84c11;
+  font-size: 1em;
+  color: #7b6335;
+}
+.qibla-ref {
+  font-size: 0.97em;
+  color: #b4913e;
+  margin-left: 0.2em;
+}
+.qibla-sources {
+  text-align: center;
+  color: #b4913e;
+  font-size: 0.98em;
+  margin-bottom: 1.5em;
+  margin-top: 2em;
+}
+.qibla-sources hr {
+  margin: 1.2em auto 1em auto;
+  border: 0;
+  border-top: 1.5px solid #e0b84c33;
+  width: 90%;
+}
+@media (max-width: 700px) {
+  .qibla-card {
+    min-width: 94vw;
+    max-width: 98vw;
+    padding: 1.5em 0.5em 1.3em 0.5em;
+  }
+  .compass-circle {
+    width: 140px;
+    height: 140px;
+  }
+}

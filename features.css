@@ -1,5 +1,25 @@
 /* features.css */
 
+.feature-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 44px;
+  margin-top: 32px;
+  padding: 0 1vw;
+}
+
+@media (max-width: 1024px) {
+  .feature-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .feature-cards-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 .advanced-learning-section {
     padding: 3rem 0 2rem 0;
     background: none;
@@ -225,9 +245,63 @@
 }
 
 .feature-item {
-    min-width: 0;
-    max-width: 96%;
+  aspect-ratio: 1/1;
+  min-width: 0;
+  width: 100%;
+  max-width: 100%;
+  border-radius: 32px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.13), 0 1.5px 4px rgba(0,0,0,0.08);
+  background: rgba(255,255,255,0.11);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.22s cubic-bezier(.4,2,.6,1), box-shadow 0.22s;
+  overflow: hidden;
+  padding: 18px 8px;
 }
+
+.feature-item i {
+  font-size: 2rem !important;
+  margin-bottom: 12px;
+}
+
+.feature-item h3 {
+  font-size: 1.1rem;
+  margin-bottom: 7px;
+}
+
+.feature-item p {
+  font-size: 0.98rem;
+}
+
+.feature-item {
+  /* ...existing styles... */
+  will-change: transform, box-shadow, filter;
+  opacity: 0;
+  animation: featureCardFadeIn 0.7s cubic-bezier(.22,1.2,.45,1) forwards;
+}
+
+@keyframes featureCardFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(32px);
+    filter: blur(2px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    filter: blur(0);
+  }
+}
+
+.feature-item:hover {
+  transform: translateY(-12px) scale(1.065) perspective(600px) rotateY(7deg) rotateX(3deg);
+  box-shadow: 0 24px 64px 0 rgba(0,0,0,0.22), 0 0 0 8px rgba(255,255,255,0.16), 0 0 24px 0 #ffe08266;
+  filter: brightness(1.10) blur(0.5px);
+  background: rgba(255,255,255,0.18);
+}
+
 
 @media (max-width: 1024px) {
     .swiper {

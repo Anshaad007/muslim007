@@ -2,13 +2,23 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>Hadith</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-<body>
-  <h1>Hadith</h1>
-  <p>This is the Hadith feature page.</p>
-  <a href="index.html">Back to Home</a>
+<body class="hadith-bg">
+  <a href="index.html" class="back-home-btn"><i class="fas fa-arrow-left"></i> Home</a>
+  <div class="hadith-header">
+    <h1>Hadith Collection</h1>
+    <p>Search authentic hadith by keyword or number from major collections.</p>
+  </div>
+  <div class="hadith-search-bar">
+    <input type="text" id="hadithQuery" placeholder="Enter keyword or hadith number..." />
+    <button id="searchHadithBtn"><i class="fas fa-search"></i> Search</button>
+  </div>
+  <div id="hadithResult" class="hadith-card"></div>
+  <link rel="stylesheet" href="hadith.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"></script>
+  <script src="hadith.js"></script>
 </body>
 </html>

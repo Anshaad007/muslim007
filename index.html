@@ -3,6 +3,7 @@
 
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description"
     content="Light of Islam - Your comprehensive Islamic resource for Quran, prayer times, dua, hadith, reminders, and more. Explore knowledge, community, and tools to enrich your faith journey." />
@@ -30,10 +31,7 @@
   <header>
     <div class="container">
       <div class="header-left">
-        <button class="three-dot-button" id="open-menu-button">
-          <i class="fas fa-bars"></i>
-        </button>
-        <a href="#" class="logo">
+                <a href="#" class="logo">
           <i class="fas fa-moon"></i>
           <h1>Light of Islam</h1>
         </a>
@@ -58,8 +56,7 @@
             <a href="prayer-times.html"><i class="fas fa-clock"></i> Prayer Times</a>
             <a href="quran.html"><i class="fas fa-book-quran"></i> Quran</a>
             <a href="tasbeeh.html"><i class="fas fa-dharmachakra"></i> Tasbeeh Counter</a>
-            <a href="calendar.html"><i class="fas fa-calendar-alt"></i> Islamic Calendar</a>
-            <a href="qibla.html"><i class="fas fa-kaaba"></i> Qibla Direction</a>
+                        <a href="qibla.html"><i class="fas fa-kaaba"></i> Qibla Direction</a>
             <a href="imaan.html"><i class="fas fa-chart-line"></i> Imaan Tracker</a>
             <a href="dua.html"><i class="fas fa-praying-hands"></i> Dua</a>
             <a href="hadith.html"><i class="fas fa-book-open"></i> Hadith</a>
@@ -74,32 +71,6 @@
     </div>
   </header>
 
-  <!-- Slide Menu -->
-  <div id="slide-menu" class="slide-menu">
-    <div class="slide-menu-header">
-      <h2 class="menu-title">Menu</h2>
-      <button id="close-menu-button" class="close-menu-button">
-        <i class="fas fa-times"></i>
-      </button>
-    </div>
-    <nav class="slide-menu-nav">
-      <div class="nav-section">
-        <h3 class="nav-section-title">Navigation</h3>
-        <div class="nav-links">
-
-
-          <a href="#hero" class="nav-link"><i class="fas fa-home"></i> Home</a>
-          <a href="#verse-of-the-day" class="nav-link"><i class="fas fa-book-open"></i> Verse of the Day</a>
-          <a href="#features" class="nav-link"><i class="fas fa-star"></i> Features</a>
-          <a href="#community" class="nav-link"><i class="fas fa-users"></i> Explore Your Path</a>
-          <a href="#contact" class="nav-link"><i class="fas fa-envelope"></i> Contact</a>
-        </div>
-      </div>
-    </nav>
-  </div>
-
-  <!-- Backdrop -->
-  <div id="backdrop" class="backdrop"></div>
 
   <main>
     <div class="bismillah-arabic">بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ</div>
@@ -160,7 +131,7 @@
     <section id="features" class="features">
       <div class="container">
         <h2>Key Features</h2>
-        <div class="swiper feature-slider">
+        <div class="feature-cards-grid">
           <noscript>
             <div class="swiper-fallback">
               <p style="color: #b91c1c; background: #fffbe7; padding: 1em; border-radius: 6px; text-align: center;">
@@ -183,43 +154,39 @@
               </ul>
             </div>
           </noscript>
-          <div class="swiper-wrapper">
-            <a href="prayer-times.html" class="swiper-slide feature-item" id="prayer-times-card">
+          <!-- Feature Cards -->
+            <a href="prayer-times.html" class="feature-item" id="prayer-times-card">
               <i class="fas fa-clock fa-3x"></i>
               <h3>Prayer Times</h3>
               <p>Accurate prayer times for your location.</p>
             </a>
-            <a href="quran.html" class="swiper-slide feature-item" id="quran-card">
+            <a href="quran.html" class="feature-item" id="quran-card">
               <i class="fas fa-book-quran fa-3x"></i>
               <h3>Quran</h3>
               <p>Read and listen to the Holy Quran.</p>
             </a>
-            <a href="tasbeeh.html" class="swiper-slide feature-item" id="tasbeeh-card">
+            <a href="tasbeeh.html" class="feature-item" id="tasbeeh-card">
               <i class="fas fa-dharmachakra fa-3x"></i>
               <h3>Tasbeeh Counter</h3>
               <p>Keep track of your dhikr and prayers.</p>
             </a>
-            <a href="calendar.html" class="swiper-slide feature-item" id="calendar-card">
-              <i class="fas fa-calendar-alt fa-3x"></i>
-              <h3>Islamic Calendar</h3>
-              <p>Stay updated with important Islamic dates.</p>
-            </a>
-            <a href="qibla.html" class="swiper-slide feature-item" id="qibla-card">
+
+            <a href="qibla.html" class="feature-item" id="qibla-card">
               <i class="fas fa-kaaba fa-3x"></i>
               <h3>Qibla Direction</h3>
               <p>Find the direction of the Kaaba from anywhere.</p>
             </a>
-            <a href="imaan.html" class="swiper-slide feature-item" id="imaan-card">
+            <a href="imaan.html" class="feature-item" id="imaan-card">
               <i class="fas fa-chart-line fa-3x"></i>
               <h3>Imaan Tracker</h3>
               <p>Monitor and strengthen your faith journey.</p>
             </a>
-            <a href="dua.html" class="swiper-slide feature-item" id="dua-card">
+            <a href="dua.html" class="feature-item" id="dua-card">
               <i class="fas fa-praying-hands fa-3x"></i>
               <h3>Dua</h3>
               <p>A collection of supplications for all occasions.</p>
             </a>
-            <a href="hadith.html" class="swiper-slide feature-item" id="hadith-feature">
+            <a href="hadith.html" class="feature-item" id="hadith-feature">
               <i class="fas fa-book-open fa-3x"></i>
               <h3>Hadith</h3>
               <p>
@@ -228,7 +195,7 @@
               </p>
             </a>
 
-            <a href="reminders.html" class="swiper-slide feature-item" id="reminders-feature">
+            <a href="reminders.html" class="feature-item" id="reminders-feature">
               <i class="fas fa-bell fa-3x"></i>
               <h3>Reminders</h3>
               <p>
@@ -237,11 +204,6 @@
               </p>
             </a>
           </div>
-          <!-- Add Pagination -->
-          <div class="swiper-pagination"></div>
-          <!-- Add Navigation -->
-          <div class="swiper-button-next"></div>
-          <div class="swiper-button-prev"></div>
         </div>
       </div>
     </section>
@@ -249,13 +211,14 @@
 
 
     </section>
-      <!-- Islam Intro Section -->
-      <section class="explore-paths-section islam-intro-section">
-        <p class="explore-section-label">ISLAM</p>
-        <h2 class="explore-section-title">What is Islam?</h2>
-        <p class="explore-intro-desc">Islam is a complete way of life, guiding humanity with faith, compassion, and purpose.</p>
-      </section>
-      <!-- Five Pillars Section -->
+    <!-- Islam Intro Section -->
+    <section class="explore-paths-section islam-intro-section">
+      <p class="explore-section-label">ISLAM</p>
+      <h2 class="explore-section-title">What is Islam?</h2>
+      <p class="explore-intro-desc">Islam is a complete way of life, guiding humanity with faith, compassion, and
+        purpose.</p>
+    </section>
+    <!-- Five Pillars Section -->
     <section id="pillars" class="pillars-section">
       <p class="pillars-section-label"></p>
       <h2 class="pillars-section-title">THE FIVE PILLARS OF ISLAM</h2>
@@ -294,26 +257,26 @@
         <p class="explore-section-label">EXPLORE</p>
         <h2 class="explore-section-title">Explore Our Paths</h2>
         <div class="explore-paths-grid">
-           <div class="explore-card sisters-bg">
-             <i class="fas fa-female fa-2x"></i>
-             <h3>Sisters' Corner</h3>
-             <p>A special space for Muslim sisters to learn, connect, and grow together in faith.</p>
-           </div>
-           <div class="explore-card kids-bg">
-             <i class="fas fa-child fa-2x"></i>
-             <h3>Kids' Corner</h3>
-             <p>Fun, stories, and activities for children to discover Islam in a joyful way.</p>
-           </div>
-           <div class="explore-card ilm-bg">
-             <i class="fas fa-lightbulb fa-2x"></i>
-             <h3>Ilm</h3>
-             <p>Expand your knowledge of Islam with articles, lectures, and authentic resources.</p>
-           </div>
-           <div class="explore-card guidance-bg">
-             <i class="fas fa-compass fa-2x"></i>
-             <h3>Guidance</h3>
-             <p>Find spiritual advice and practical guidance for every stage of your journey.</p>
-           </div>
+          <div class="explore-card sisters-bg">
+            <i class="fas fa-female fa-2x"></i>
+            <h3>Sisters' Corner</h3>
+            <p>A special space for Muslim sisters to learn, connect, and grow together in faith.</p>
+          </div>
+          <div class="explore-card kids-bg">
+            <i class="fas fa-child fa-2x"></i>
+            <h3>Kids' Corner</h3>
+            <p>Fun, stories, and activities for children to discover Islam in a joyful way.</p>
+          </div>
+          <div class="explore-card ilm-bg">
+            <i class="fas fa-lightbulb fa-2x"></i>
+            <h3>Ilm</h3>
+            <p>Expand your knowledge of Islam with articles, lectures, and authentic resources.</p>
+          </div>
+          <div class="explore-card guidance-bg">
+            <i class="fas fa-compass fa-2x"></i>
+            <h3>Guidance</h3>
+            <p>Find spiritual advice and practical guidance for every stage of your journey.</p>
+          </div>
         </div>
       </div>
     </section>

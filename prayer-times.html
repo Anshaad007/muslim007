@@ -1,16 +1,169 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Prayer Times</title>
+  <title>Prayer Dashboard</title>
   <link rel="stylesheet" href="style.css" />
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Scheherazade+New:wght@700&family=Cairo:wght@600&display=swap" rel="stylesheet">
 </head>
+<body class="bg-gradient-to-br from-[#f1eddb] via-[#ddd5b8] to-[#cdc4a6] min-h-screen flex flex-col">
+  <a href="index.html" class="back-home-btn"><i class="fas fa-arrow-left"></i> Home</a>
+  <div class="flex flex-1 w-full h-full">
+    <!-- Sidebar -->
+    <aside class="sidebar glassmorph flex flex-col justify-between p-6 w-72 min-h-screen">
+      <div>
+        <div class="flex items-center gap-3 mb-6">
+          <span class="material-icons text-2xl text-blue-700">location_on</span>
+          <span id="live-location" class="font-semibold text-lg">Detecting...</span>
+        </div>
+        <div class="mb-8">
+          <div class="text-xs text-gray-500">Gregorian</div>
+          <div id="gregorian-date" class="font-bold text-lg">July 29, 2025</div>
+          <div class="text-xs text-gray-500 mt-3">Hijri</div>
+          <div id="hijri-date" class="font-bold text-lg">1447 Muharram 2</div>
+        </div>
+        <!-- Sidebar Navigation -->
+        <nav class="flex flex-col gap-4 mt-4" aria-label="Dashboard navigation">
+          <a href="index.html" class="sidebar-link flex items-center gap-2 py-2 px-3 rounded-lg hover:bg-blue-50 transition" aria-label="Home">
+            <span class="material-icons text-blue-700">home</span>
+            <span class="font-semibold">Home</span>
+          </a>
+          <a href="ilm.html" class="sidebar-link flex items-center gap-2 py-2 px-3 rounded-lg hover:bg-blue-50 transition" aria-label="Ilm (Knowledge)">
+            <span class="material-icons text-green-700">menu_book</span>
+            <span class="font-semibold">Ilm</span>
+          </a>
+          <a href="quran.html" class="sidebar-link flex items-center gap-2 py-2 px-3 rounded-lg hover:bg-blue-50 transition" aria-label="Quran">
+            <span class="material-icons text-purple-700">auto_stories</span>
+            <span class="font-semibold">Quran</span>
+          </a>
+          <a href="community.html" class="sidebar-link flex items-center gap-2 py-2 px-3 rounded-lg hover:bg-blue-50 transition" aria-label="Community">
+            <span class="material-icons text-orange-700">groups</span>
+            <span class="font-semibold">Community</span>
+          </a>
+          <a href="settings.html" class="sidebar-link flex items-center gap-2 py-2 px-3 rounded-lg hover:bg-blue-50 transition" aria-label="Settings">
+            <span class="material-icons text-gray-700">settings</span>
+            <span class="font-semibold">Settings</span>
+          </a>
+        </nav>
+      </div>
+      <div class="flex items-center gap-4">
+        <span class="material-icons text-2xl">dark_mode</span>
+        <label class="switch">
+          <input type="checkbox" id="dark-mode-toggle">
+          <span class="slider round"></span>
+        </label>
+        <span class="text-sm font-semibold">Dark Mode</span>
+      </div>
+    </aside>
 
-<body
-  class="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#f1eddb] via-[#ddd5b8] to-[#cdc4a6] text-[#1E3A8A]">
+    <!-- Main Dashboard -->
+    <main class="flex-1 flex flex-col items-center justify-between py-8 px-4">
+  <button id="show-next-prayer" style="margin-bottom:24px;padding:10px 24px;font-size:1.1em;border-radius:12px;background:#3b82f6;color:white;border:none;box-shadow:0 2px 8px rgba(0,0,0,0.07);cursor:pointer;">Show Current Time & Next Prayer</button>
+      <!-- Analog Clock Top Right -->
+      <div id="digital-clock-container">
+          <span></span>
+      </div>
+      <!-- Top Bar: Next Prayer -->
+      <div class="w-full max-w-4xl mb-6">
+        <div class="glassmorph flex items-center justify-between px-6 py-4 rounded-2xl shadow-lg">
+          <div class="flex flex-col">
+            <span class="text-xs text-gray-500">الصلاة التالية / Next Prayer</span>
+            <span id="next-prayer-name" class="font-arabic text-2xl font-bold text-blue-800">--</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="material-icons text-3xl text-yellow-500 animate-pulse">alarm</span>
+            <span id="next-prayer-countdown" class="font-mono text-xl font-semibold text-blue-900">00:00:00</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Prayer Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-4xl">
+        <!-- Fajr Card -->
+        <div class="prayer-card glassmorph relative overflow-hidden">
+          <div class="animated-bg sunrise"></div>
+          <div class="flex flex-col items-center py-6">
+            <span class="font-arabic text-2xl">الفجر</span>
+            <span class="font-cairo text-lg mb-2">Fajr</span>
+            <span id="fajr-time" class="font-mono text-2xl font-bold">--:--</span>
+            <span id="fajr-countdown" class="text-sm text-blue-900">00:00:00</span>
+            <button class="adhan-btn" data-prayer="Fajr" aria-label="Toggle Fajr Notification">
+              <span class="material-icons">notifications_off</span>
+            </button>
+          </div>
+        </div>
+        <!-- Dhuhr Card -->
+        <div class="prayer-card glassmorph relative overflow-hidden">
+          <div class="animated-bg daylight"></div>
+          <div class="flex flex-col items-center py-6">
+            <span class="font-arabic text-2xl">الظهر</span>
+            <span class="font-cairo text-lg mb-2">Dhuhr</span>
+            <span id="dhuhr-time" class="font-mono text-2xl font-bold">--:--</span>
+            <span id="dhuhr-countdown" class="text-sm text-blue-900">00:00:00</span>
+            <button class="adhan-btn" data-prayer="Dhuhr" aria-label="Toggle Dhuhr Notification">
+              <span class="material-icons">notifications_off</span>
+            </button>
+          </div>
+        </div>
+        <!-- Asr Card -->
+        <div class="prayer-card glassmorph relative overflow-hidden">
+          <div class="animated-bg afternoon"></div>
+          <div class="flex flex-col items-center py-6">
+            <span class="font-arabic text-2xl">العصر</span>
+            <span class="font-cairo text-lg mb-2">Asr</span>
+            <span id="asr-time" class="font-mono text-2xl font-bold">--:--</span>
+            <span id="asr-countdown" class="text-sm text-blue-900">00:00:00</span>
+            <button class="adhan-btn" data-prayer="Asr" aria-label="Toggle Asr Notification">
+              <span class="material-icons">notifications_off</span>
+            </button>
+          </div>
+        </div>
+        <!-- Maghrib Card -->
+        <div class="prayer-card glassmorph relative overflow-hidden">
+          <div class="animated-bg sunset"></div>
+          <div class="flex flex-col items-center py-6">
+            <span class="font-arabic text-2xl">المغرب</span>
+            <span class="font-cairo text-lg mb-2">Maghrib</span>
+            <span id="maghrib-time" class="font-mono text-2xl font-bold">--:--</span>
+            <span id="maghrib-countdown" class="text-sm text-blue-900">00:00:00</span>
+            <button class="adhan-btn" data-prayer="Maghrib" aria-label="Toggle Maghrib Notification">
+              <span class="material-icons">notifications_off</span>
+            </button>
+          </div>
+        </div>
+        <!-- Isha Card -->
+        <div class="prayer-card glassmorph relative overflow-hidden">
+          <div class="animated-bg night"></div>
+          <div class="flex flex-col items-center py-6">
+            <span class="font-arabic text-2xl">العشاء</span>
+            <span class="font-cairo text-lg mb-2">Isha</span>
+            <span id="isha-time" class="font-mono text-2xl font-bold">--:--</span>
+            <span id="isha-countdown" class="text-sm text-blue-900">00:00:00</span>
+            <button class="adhan-btn" data-prayer="Isha" aria-label="Toggle Isha Notification">
+              <span class="material-icons">notifications_off</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Qibla Compass -->
+      <div class="w-full max-w-4xl flex flex-col items-center mt-10">
+        <div class="glassmorph flex flex-col items-center py-6 px-8 rounded-2xl shadow-lg">
+          <span class="font-arabic text-xl mb-2">اتجاه القبلة</span>
+          <span class="font-cairo text-base mb-4">Qibla Direction</span>
+          <div id="qibla-compass" class="qibla-compass mt-2"></div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <!-- Material Icons CDN -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="script.js"></script>
+</body>
+</html>
   <style>
     .fade-in-card {
       animation: fadeInUp 1s cubic-bezier(.39, .575, .565, 1.000) both;
@@ -46,50 +199,6 @@
     }
   </style>
 
-  <div class="max-w-xl w-full bg-[#fffbe6] shadow-2xl rounded-3xl p-8 fade-in-card border border-[#ede3bf]"
-    style="box-shadow: 0 8px 32px 0 #cdc4a633, 0 2.5px 12px 0 #1E3A8A13;">
-    <h1 class="text-4xl font-extrabold mb-6 text-center text-[#1E3A8A]" style="font-family: 'Scheherazade New', serif;">
-      🕌 Today's Prayer Times
-    </h1>
-    <div class="grid grid-cols-3 gap-4 text-xl">
-      <div class="font-semibold fade-in-row" style="animation-delay:0.1s">Fajr</div>
-      <div id="fajr" class="fade-in-row" style="animation-delay:0.2s">--</div>
-      <button class="prayer-bell fade-in-row" style="animation-delay:0.21s" data-prayer="Fajr"
-        aria-label="Toggle Fajr notification">🔕</button>
-
-      <div class="font-semibold fade-in-row" style="animation-delay:0.3s">Dhuhr</div>
-      <div id="dhuhr" class="fade-in-row" style="animation-delay:0.4s">--</div>
-      <button class="prayer-bell fade-in-row" style="animation-delay:0.41s" data-prayer="Dhuhr"
-        aria-label="Toggle Dhuhr notification">🔕</button>
-
-      <div class="font-semibold fade-in-row" style="animation-delay:0.5s">Asr</div>
-      <div id="asr" class="fade-in-row" style="animation-delay:0.6s">--</div>
-      <button class="prayer-bell fade-in-row" style="animation-delay:0.61s" data-prayer="Asr"
-        aria-label="Toggle Asr notification">🔕</button>
-
-      <div class="font-semibold fade-in-row" style="animation-delay:0.7s">Maghrib</div>
-      <div id="maghrib" class="fade-in-row" style="animation-delay:0.8s">--</div>
-      <button class="prayer-bell fade-in-row" style="animation-delay:0.81s" data-prayer="Maghrib"
-        aria-label="Toggle Maghrib notification">🔕</button>
-
-      <div class="font-semibold fade-in-row" style="animation-delay:0.9s">Isha</div>
-      <div id="isha" class="fade-in-row" style="animation-delay:1.0s">--</div>
-      <button class="prayer-bell fade-in-row" style="animation-delay:1.01s" data-prayer="Isha"
-        aria-label="Toggle Isha notification">🔕</button>
-    </div>
-
-    <div class="mt-6 text-center text-lg text-[#6b5e34]">
-      ⏰ Next Prayer: <span id="next-prayer-name" class="font-bold"></span> in <span id="countdown"
-        class="font-bold"></span>
-    </div>
-
-    <hr class="my-6 border-[#ede3bf]">
-
-    <div class="text-center text-sm text-[#bfae7c]">
-      <p id="location-info">Detecting location...</p>
-      <p id="error-message" class="text-red-600 mt-2"></p>
-    </div>
-  </div>
 
   <script>
     async function fetchPrayerTimes(lat, lon) {
@@ -188,41 +297,54 @@
     let adhanPlayedToday = {};
 
     function startCountdown(prayerTimes) {
-      function updateCountdown() {
-        const now = new Date();
-        const today = now.toISOString().split('T')[0];
+  // Use the provided local time as the initial value
+  let initialTime = new Date('2025-07-29T19:16:49+05:30');
+  let firstTick = true;
 
-        // Build a list of prayer times as Date objects
-        const times = Object.entries(prayerTimes).map(([name, time]) => {
-          let date = new Date(`${today}T${time}:00`);
-          // If Fajr and already passed, set to tomorrow
-          if (name === 'Fajr' && now > date) {
-            date.setDate(date.getDate() + 1);
-          }
-          // For all others, if already passed, set to tomorrow
-          if (date < now) {
-            date.setDate(date.getDate() + 1);
-          }
-          return { name, time: date };
-        });
-
-        // Sort by soonest
-        times.sort((a, b) => a.time - b.time);
-
-        const next = times.find(p => p.time > now);
-        if (next) {
-          const diffMs = next.time - now;
-          const hours = String(Math.floor(diffMs / (1000 * 60 * 60))).padStart(2, '0');
-          const minutes = String(Math.floor((diffMs / (1000 * 60)) % 60)).padStart(2, '0');
-          const seconds = String(Math.floor((diffMs / 1000) % 60)).padStart(2, '0');
-
-          document.getElementById("next-prayer-name").textContent = next.name;
-          document.getElementById("countdown").textContent = `${hours}:${minutes}:${seconds}`;
-        }
-      }
-      updateCountdown();
-      setInterval(updateCountdown, 1000);
+  function updateCountdown() {
+    let now;
+    if (firstTick) {
+      now = initialTime;
+      firstTick = false;
+    } else {
+      now = new Date();
     }
+    const today = now.toISOString().split('T')[0];
+
+    // Build a list of prayer times as Date objects
+    const times = Object.entries(prayerTimes).map(([name, time]) => {
+      let date = new Date(`${today}T${time}:00`);
+      // If Fajr and already passed, set to tomorrow
+      if (name === 'Fajr' && now > date) {
+        date.setDate(date.getDate() + 1);
+      }
+      // For all others, if already passed, set to tomorrow
+      if (date < now) {
+        date.setDate(date.getDate() + 1);
+      }
+      return { name, time: date };
+    });
+
+    // Sort by soonest
+    times.sort((a, b) => a.time - b.time);
+
+    const next = times.find(p => p.time > now);
+    if (next) {
+      const diffMs = next.time - now;
+      const hours = String(Math.floor(diffMs / (1000 * 60 * 60))).padStart(2, '0');
+      const minutes = String(Math.floor((diffMs / (1000 * 60)) % 60)).padStart(2, '0');
+      const seconds = String(Math.floor((diffMs / 1000) % 60)).padStart(2, '0');
+
+      document.getElementById("next-prayer-name").textContent = next.name;
+      document.getElementById("countdown").textContent = `${hours}:${minutes}:${seconds}`;
+    } else {
+      document.getElementById("next-prayer-name").textContent = "-";
+      document.getElementById("countdown").textContent = "All prayers for today are complete.";
+    }
+  }
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+}
 
     window.onload = getUserLocation;
   </script>

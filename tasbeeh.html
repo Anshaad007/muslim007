@@ -6,9 +6,181 @@
   <title>Tasbeeh Counter</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-<body>
-  <h1>Tasbeeh Counter</h1>
-  <p>This is the Tasbeeh Counter feature page.</p>
-  <a href="index.html">Back to Home</a>
+<body class="tasbeeh-bg">
+  <a href="index.html" class="back-home-btn"><i class="fas fa-arrow-left"></i> Home</a>
+  <a href="index.html" class="back-home-btn"><i class="fas fa-arrow-left"></i> Home</a>
+  <div class="tasbeeh-header">
+    <div class="tasbeeh-challenges" id="tasbeeh-challenges">
+      <h2>Daily Challenges</h2>
+      <div class="challenge-card" id="challenge-subhanallah-100">
+        <span>SubhanAllah 100 times</span>
+        <div class="challenge-progress-bar"><div class="challenge-progress" id="progress-subhanallah-100"></div></div>
+        <span class="challenge-badge" id="badge-subhanallah-100" style="display:none;">✔️</span>
+      </div>
+      <div class="challenge-card" id="challenge-all-33">
+        <span>All dhikr 33 times each</span>
+        <div class="challenge-progress-bar"><div class="challenge-progress" id="progress-all-33"></div></div>
+        <span class="challenge-badge" id="badge-all-33" style="display:none;">🏆</span>
+      </div>
+      <div id="challenge-celebration" style="display:none;"></div>
+    </div>
+    <h1>Tasbeeh & Dhikr Counter</h1>
+    <p>Keep your tongue moist with the remembrance of Allah <span class="tasbeeh-emoji">🤲</span></p>
+  </div>
+  <div class="tasbeeh-container">
+    <div class="tasbeeh-card" data-key="subhanallah">
+      <div class="tasbeeh-phrase-ar">سُبْحَانَ اللّٰه</div>
+      <div class="tasbeeh-phrase-en">SubhanAllah <span class="tasbeeh-meaning">(Glory be to Allah)</span></div>
+      <div class="tasbeeh-count" id="count-subhanallah">0</div>
+      <div class="tasbeeh-actions">
+        <button class="tasbeeh-increment" data-key="subhanallah">+</button>
+        <button class="tasbeeh-reset" data-key="subhanallah"><i class="fas fa-undo"></i></button>
+      </div>
+      <div class="tasbeeh-hadith">
+        <span>“Whoever says: ‘SubhanAllah wa bihamdihi’ 100 times a day, his sins will be forgiven even if they are like the foam of the sea.”</span><br>
+        <span class="tasbeeh-ref">[Bukhari, Muslim]</span>
+      </div>
+    </div>
+    <div class="tasbeeh-card" data-key="alhamdulillah">
+      <div class="tasbeeh-phrase-ar">الْـحَمْدُ لِلّٰه</div>
+      <div class="tasbeeh-phrase-en">Alhamdulillah <span class="tasbeeh-meaning">(All praise is due to Allah)</span></div>
+      <div class="tasbeeh-count" id="count-alhamdulillah">0</div>
+      <div class="tasbeeh-actions">
+        <button class="tasbeeh-increment" data-key="alhamdulillah">+</button>
+        <button class="tasbeeh-reset" data-key="alhamdulillah"><i class="fas fa-undo"></i></button>
+      </div>
+      <div class="tasbeeh-hadith">
+        <span>“Alhamdulillah fills the scale.”</span><br>
+        <span class="tasbeeh-ref">[Muslim]</span>
+      </div>
+    </div>
+    <div class="tasbeeh-card" data-key="allahuakbar">
+      <div class="tasbeeh-phrase-ar">اللّٰهُ أَكْبَر</div>
+      <div class="tasbeeh-phrase-en">Allahu Akbar <span class="tasbeeh-meaning">(Allah is the Greatest)</span></div>
+      <div class="tasbeeh-count" id="count-allahuakbar">0</div>
+      <div class="tasbeeh-actions">
+        <button class="tasbeeh-increment" data-key="allahuakbar">+</button>
+        <button class="tasbeeh-reset" data-key="allahuakbar"><i class="fas fa-undo"></i></button>
+      </div>
+      <div class="tasbeeh-hadith">
+        <span>“SubhanAllah, Alhamdulillah, and Allahu Akbar are more beloved to me than all that the sun rises upon.”</span><br>
+        <span class="tasbeeh-ref">[Muslim]</span>
+      </div>
+    </div>
+    <div class="tasbeeh-card" data-key="astaghfirullah">
+      <div class="tasbeeh-phrase-ar">أَسْتَغْفِرُ اللّٰه</div>
+      <div class="tasbeeh-phrase-en">Astaghfirullah <span class="tasbeeh-meaning">(I seek forgiveness from Allah)</span></div>
+      <div class="tasbeeh-count" id="count-astaghfirullah">0</div>
+      <div class="tasbeeh-actions">
+        <button class="tasbeeh-increment" data-key="astaghfirullah">+</button>
+        <button class="tasbeeh-reset" data-key="astaghfirullah"><i class="fas fa-undo"></i></button>
+      </div>
+      <div class="tasbeeh-hadith">
+        <span>“By Allah, I seek Allah’s forgiveness and turn to Him in repentance more than seventy times a day.”</span><br>
+        <span class="tasbeeh-ref">[Bukhari]</span>
+      </div>
+    </div>
+    <div class="tasbeeh-card" data-key="lailahaillallah">
+      <div class="tasbeeh-phrase-ar">لَا إِلٰهَ إِلَّا اللّٰه</div>
+      <div class="tasbeeh-phrase-en">La ilaha illallah <span class="tasbeeh-meaning">(There is no god but Allah)</span></div>
+      <div class="tasbeeh-count" id="count-lailahaillallah">0</div>
+      <div class="tasbeeh-actions">
+        <button class="tasbeeh-increment" data-key="lailahaillallah">+</button>
+        <button class="tasbeeh-reset" data-key="lailahaillallah"><i class="fas fa-undo"></i></button>
+      </div>
+      <div class="tasbeeh-hadith">
+        <span>“The best remembrance is: La ilaha illallah.”</span><br>
+        <span class="tasbeeh-ref">[Tirmidhi]</span>
+      </div>
+    </div>
+    <div class="tasbeeh-card" data-key="subhanallah-wa-bihamdihi">
+      <div class="tasbeeh-phrase-ar">سُبْحَانَ اللّٰهِ وَبِحَمْدِهِ</div>
+      <div class="tasbeeh-phrase-en">SubhanAllahi wa bihamdihi <span class="tasbeeh-meaning">(Glory and praise be to Allah)</span></div>
+      <div class="tasbeeh-count" id="count-subhanallah-wa-bihamdihi">0</div>
+      <div class="tasbeeh-actions">
+        <button class="tasbeeh-increment" data-key="subhanallah-wa-bihamdihi">+</button>
+        <button class="tasbeeh-reset" data-key="subhanallah-wa-bihamdihi"><i class="fas fa-undo"></i></button>
+      </div>
+      <div class="tasbeeh-hadith">
+        <span>“Two words are light on the tongue, heavy on the scale, and beloved to the Most Merciful: SubhanAllahi wa bihamdihi, SubhanAllahi-l-azim.”</span><br>
+        <span class="tasbeeh-ref">[Bukhari, Muslim]</span>
+      </div>
+    </div>
+    <div class="tasbeeh-card" data-key="subhanallahil-azim">
+      <div class="tasbeeh-phrase-ar">سُبْحَانَ اللّٰهِ الْعَظِيمِ</div>
+      <div class="tasbeeh-phrase-en">SubhanAllahi-l-azim <span class="tasbeeh-meaning">(Glory be to Allah, the Magnificent)</span></div>
+      <div class="tasbeeh-count" id="count-subhanallahil-azim">0</div>
+      <div class="tasbeeh-actions">
+        <button class="tasbeeh-increment" data-key="subhanallahil-azim">+</button>
+        <button class="tasbeeh-reset" data-key="subhanallahil-azim"><i class="fas fa-undo"></i></button>
+      </div>
+      <div class="tasbeeh-hadith">
+        <span>“Two words are light on the tongue, heavy on the scale, and beloved to the Most Merciful: SubhanAllahi wa bihamdihi, SubhanAllahi-l-azim.”</span><br>
+        <span class="tasbeeh-ref">[Bukhari, Muslim]</span>
+      </div>
+    </div>
+    <div class="tasbeeh-card" data-key="allahumma-salli-ala-muhammad">
+      <div class="tasbeeh-phrase-ar">اللّهُمَّ صَلِّ عَلَى مُحَمَّدٍ</div>
+      <div class="tasbeeh-phrase-en">Allahumma salli ala Muhammad <span class="tasbeeh-meaning">(O Allah, send blessings upon Muhammad)</span></div>
+      <div class="tasbeeh-count" id="count-allahumma-salli-ala-muhammad">0</div>
+      <div class="tasbeeh-actions">
+        <button class="tasbeeh-increment" data-key="allahumma-salli-ala-muhammad">+</button>
+        <button class="tasbeeh-reset" data-key="allahumma-salli-ala-muhammad"><i class="fas fa-undo"></i></button>
+      </div>
+      <div class="tasbeeh-hadith">
+        <span>“Whoever sends blessings upon me once, Allah will send blessings upon him tenfold.”</span><br>
+        <span class="tasbeeh-ref">[Muslim]</span>
+      </div>
+    </div>
+    <div class="tasbeeh-card" data-key="la-hawla-wa-la-quwwata">
+      <div class="tasbeeh-phrase-ar">لَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللّٰهِ</div>
+      <div class="tasbeeh-phrase-en">La hawla wa la quwwata illa billah <span class="tasbeeh-meaning">(There is no power nor might except with Allah)</span></div>
+      <div class="tasbeeh-count" id="count-la-hawla-wa-la-quwwata">0</div>
+      <div class="tasbeeh-actions">
+        <button class="tasbeeh-increment" data-key="la-hawla-wa-la-quwwata">+</button>
+        <button class="tasbeeh-reset" data-key="la-hawla-wa-la-quwwata"><i class="fas fa-undo"></i></button>
+      </div>
+      <div class="tasbeeh-hadith">
+        <span>“La hawla wa la quwwata illa billah is one of the treasures of Paradise.”</span><br>
+        <span class="tasbeeh-ref">[Bukhari, Muslim]</span>
+      </div>
+    </div>
+    <div class="tasbeeh-card" data-key="hasbunallahu-wa-ni-mal-wakeel">
+      <div class="tasbeeh-phrase-ar">حَسْبُنَا اللّٰهُ وَنِعْمَ الْوَكِيلُ</div>
+      <div class="tasbeeh-phrase-en">Hasbunallahu wa ni'mal wakeel <span class="tasbeeh-meaning">(Allah is Sufficient for us and the best Disposer of affairs)</span></div>
+      <div class="tasbeeh-count" id="count-hasbunallahu-wa-ni-mal-wakeel">0</div>
+      <div class="tasbeeh-actions">
+        <button class="tasbeeh-increment" data-key="hasbunallahu-wa-ni-mal-wakeel">+</button>
+        <button class="tasbeeh-reset" data-key="hasbunallahu-wa-ni-mal-wakeel"><i class="fas fa-undo"></i></button>
+      </div>
+      <div class="tasbeeh-hadith">
+        <span>“Hasbunallahu wa ni’ma al-wakeel was said by Ibrahim (AS) when he was thrown into the fire.”</span><br>
+        <span class="tasbeeh-ref">[Bukhari]</span>
+      </div>
+    </div>
+    <div class="tasbeeh-card" data-key="rabbi-ghfir-li-wa-tub-alayya">
+      <div class="tasbeeh-phrase-ar">رَبِّ اغْفِرْ لِي وَتُبْ عَلَيَّ</div>
+      <div class="tasbeeh-phrase-en">Rabbi ghfir li wa tub alayya <span class="tasbeeh-meaning">(My Lord, forgive me and accept my repentance)</span></div>
+      <div class="tasbeeh-count" id="count-rabbi-ghfir-li-wa-tub-alayya">0</div>
+      <div class="tasbeeh-actions">
+        <button class="tasbeeh-increment" data-key="rabbi-ghfir-li-wa-tub-alayya">+</button>
+        <button class="tasbeeh-reset" data-key="rabbi-ghfir-li-wa-tub-alayya"><i class="fas fa-undo"></i></button>
+      </div>
+      <div class="tasbeeh-hadith">
+        <span>This was the dua of the Prophet (ﷺ) in his prayers for forgiveness and repentance.</span><br>
+        <span class="tasbeeh-ref">[Abu Dawood]</span>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"></script>
+  <link rel="stylesheet" href="tasbeeh.css" />
+  <script src="tasbeeh.js"></script>
+  <footer class="tasbeeh-sources">
+    <hr>
+    <div>
+      <strong>Sources:</strong> Sahih Bukhari, Sahih Muslim, Sunan Abu Dawood, Jami` at-Tirmidhi
+    </div>
+    <div class="tasbeeh-sources-note">For more details, refer to authentic hadith collections and scholarly works.</div>
+  </footer>
 </body>
 </html>

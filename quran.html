@@ -1,14 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Quran</title>
+  <title>Quran Reader</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&family=Scheherazade+New:wght@700&family=Poppins:wght@400;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="quran.css" />
 </head>
-<body>
-  <h1>Quran</h1>
-  <p>This is the Quran feature page.</p>
-  <a href="index.html">Back to Home</a>
+
+<body class="quran-bg">
+  <a href="/" id="back-home-btn" class="back-home-btn"><i class="fas fa-arrow-left"></i> Home</a>
+  <div id="motivation-message" class="motivation-message">“The best of you are those who learn the Quran and teach
+    it.”<br><span class='motivation-ref'>[Bukhari]</span></div>
+  <div class="quran-app-container">
+    <aside class="quran-sidebar">
+      <div class="sidebar-header">
+        <i class="fas fa-quran"></i>
+        <span>Surahs</span>
+      </div>
+      <ul class="surah-list" id="surah-list">
+        <!-- Surah names will be loaded here -->
+      </ul>
+    </aside>
+    <main class="quran-main-panel">
+      <div class="main-header">
+        <div id="daily-progress" class="daily-progress"></div>
+        <button id="done-reading-btn" class="done-btn">Done</button>
+        <!-- Daily Done Modal -->
+        <div id="done-modal" class="done-modal" style="display:none;">
+          <div class="done-modal-content">
+            <span class="done-modal-close" id="close-done-modal">&times;</span>
+            <h3>Congratulations!</h3>
+            <p id="done-modal-msg"></p>
+          </div>
+        </div>
+        <div class="surah-meta">
+          <span class="surah-number" id="surah-number">1</span>
+          <span class="surah-arabic-name" id="surah-arabic-name">الفاتحة</span>
+          <span class="surah-english-name" id="surah-english-name">Al-Fatiha</span>
+        </div>
+        <select id="translation-select" class="translation-select"
+          style="display:none; position:absolute; z-index:10;"></select>
+        <div class="main-header-icons">
+          <button class="icon-btn" id="translation-icon-btn" title="Translation"><i
+              class="fas fa-language"></i></button>
+          <button class="icon-btn" title="Tafsir"><i class="fas fa-book-open"></i></button>
+          <button class="icon-btn" id="open-bookmark-modal" title="Bookmarks"><i class="fas fa-bookmark"></i></button>
+        </div>
+
+        <!-- Bookmark Modal Popup -->
+        <div id="bookmark-modal" class="bookmark-modal" style="display:none;">
+          <div class="bookmark-modal-content">
+            <span class="bookmark-modal-close" id="close-bookmark-modal">&times;</span>
+            <h3>Continue Reading / Bookmarked Ayahs</h3>
+            <ul id="bookmark-list"></ul>
+            <div class="bookmark-modal-empty" style="display:none;">No bookmarks yet.</div>
+          </div>
+        </div>
+      </div>
+      <div class="ayah-list" id="ayah-list">
+        <!-- Quran text and translation will be loaded here -->
+      </div>
+    </main>
+  </div>
+  <footer class="quran-audio-player">
+    <audio id="audio-player" controls>
+      <source id="audio-source" src="" type="audio/mp3">
+      Your browser does not support the audio element.
+    </audio>
+    <div class="audio-meta">
+      <span id="audio-surah-name">Al-Fatiha</span> - <span id="audio-reciter">Abdul Basit</span>
+    </div>
+  </footer>
+  <script src="quran.js"></script>
 </body>
+
 </html>
