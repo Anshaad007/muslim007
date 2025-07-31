@@ -45,6 +45,49 @@ body {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+/* Global Responsive Nav & Hero Styles */
+@media (max-width: 768px) {
+    .menu-dropdown {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 10px 0;
+    }
+
+    .nav-item,
+    .menu-button {
+        margin: 5px 0;
+        text-align: center;
+    }
+
+    .explore-button {
+        width: 90%;
+        font-size: 16px;
+    }
+
+    .hero-section,
+    .hero-flex,
+    .hero {
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+    }
+
+    .hero-title,
+    .hero-section h1,
+    .hero h1 {
+        font-size: 24px !important;
+        margin-bottom: 10px !important;
+    }
+
+    .hero-subtitle,
+    .hero-section p,
+    .hero p {
+        font-size: 16px !important;
+    }
+}
+
 /* Bismillah (Arabic) */
 .bismillah-arabic {
     font-family: 'Amiri', 'Scheherazade New', serif;
