@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quran Tafsir Voice App</title>
+  <meta name="description" content="Voice recognized Quran tafsir search powered by AI" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;500;700&family=Scheherazade+New:wght@400;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="features.css" />
+  <link rel="stylesheet" href="ai.css" />
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <a href="index.html" class="logo" style="text-decoration:none;display:flex;align-items:center;gap:0.7em;">
+        <i class="fas fa-moon"></i>
+        <h1 style="font-size:1.6rem;font-weight:700;margin:0;">Light of Islam</h1>
+      </a>
+    </div>
+  </header>
+  <main>
+    <div class="container" style="max-width:440px;margin:40px auto 0 auto;">
+      <a href="index.html" class="btn btn-secondary" style="margin-bottom:1.3em;display:inline-block;background:linear-gradient(90deg,#e0e7ef 60%,#c7d2fe 100%);color:#1e293b;font-weight:600;box-shadow:0 2px 8px #c7d2fe33;border:none;">← Back Home</a>
+      <h2 class="about-title" style="margin-bottom:0.4em;">Voice Recognized Tafsir Search</h2>
+      <div class="subtitle" style="margin-bottom:1.5em;">Recite, record, and receive tafsir instantly.</div>
+      <div class="recorder">
+        <button id="startBtn" class="btn" title="Start Recording">
+          <i class="fas fa-microphone-alt"></i>
+          Start Recording
+        </button>
+        <button id="stopBtn" class="btn" style="display:none;background:#e53e3e;" title="Stop Recording">
+          <i class="fas fa-stop"></i>
+          Stop Recording
+        </button>
+      </div>
+      <div class="audio-preview" style="display:none">
+        <audio id="audioPlayer" controls></audio>
+        <button id="sendBtn" class="btn" style="background:#38a169;margin-top:1em;">Get Tafsir</button>
+      </div>
+      <div class="output" style="display:none">
+        <h3 style="font-size:1.13rem;font-weight:700;">Tafsir Result</h3>
+        <p id="outputText"></p>
+      </div>
+      <div class="error" id="errorBox" style="display:none"></div>
+    </div>
+  </main>
+
+  <script src="ai.js"></script>
+</body>
+
+</html>

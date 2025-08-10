@@ -113,55 +113,55 @@ document.addEventListener('DOMContentLoaded', function () {
       card.classList.remove('animate-spotlight');
       void card.offsetWidth;
       card.classList.add('animate-spotlight');
-            conf.className = 'confetti';
-            conf.style.background = confettiColors[Math.floor(Math.random() * confettiColors.length)];
-            conf.style.left = Math.random() * 100 + 'vw';
-            conf.style.animationDelay = (Math.random() * 0.7) + 's';
-            conf.style.animationDuration = (0.9 + Math.random() * 0.7) + 's';
-            document.body.appendChild(conf);
-            setTimeout(() => conf.remove(), 1700);
-        }
+      conf.className = 'confetti';
+      conf.style.background = confettiColors[Math.floor(Math.random() * confettiColors.length)];
+      conf.style.left = Math.random() * 100 + 'vw';
+      conf.style.animationDelay = (Math.random() * 0.7) + 's';
+      conf.style.animationDuration = (0.9 + Math.random() * 0.7) + 's';
+      document.body.appendChild(conf);
+      setTimeout(() => conf.remove(), 1700);
     }
-    confettiBurst();
+  }
+  confettiBurst();
 
-    // Call updateSpotlight on load and every 10s
-    // (inserted by Cascade)
+  // Call updateSpotlight on load and every 10s
+  // (inserted by Cascade)
 }
 updateSpotlight();
 setInterval(updateSpotlight, 10000);
 
-    // --- Add motivational tip on hover ---
-    if (quoteEl) {
-        quoteEl.addEventListener('mouseenter', function () {
-            quoteEl.style.color = '#e0b84c';
-            quoteEl.style.transition = 'color 0.3s';
-        });
-        quoteEl.addEventListener('mouseleave', function () {
-            quoteEl.style.color = '';
-        });
-    }
+// --- Add motivational tip on hover ---
+if (quoteEl) {
+  quoteEl.addEventListener('mouseenter', function () {
+    quoteEl.style.color = '#e0b84c';
+    quoteEl.style.transition = 'color 0.3s';
+  });
+  quoteEl.addEventListener('mouseleave', function () {
+    quoteEl.style.color = '';
+  });
+}
 
-    // --- Animate prayer countdown (dummy for now) ---
-    const countdownEl = document.querySelector('#prayerCountdown span');
-    if (countdownEl) {
-        let mins = 90;
-        function tick() {
-            let h = Math.floor(mins / 60);
-            let m = mins % 60;
-            countdownEl.textContent = `${h}h ${m}m`;
-            mins = mins > 0 ? mins - 1 : 90;
-        }
-        tick();
-        setInterval(tick, 60000);
-    }
+// --- Animate prayer countdown (dummy for now) ---
+const countdownEl = document.querySelector('#prayerCountdown span');
+if (countdownEl) {
+  let mins = 90;
+  function tick() {
+    let h = Math.floor(mins / 60);
+    let m = mins % 60;
+    countdownEl.textContent = `${h}h ${m}m`;
+    mins = mins > 0 ? mins - 1 : 90;
+  }
+  tick();
+  setInterval(tick, 60000);
+}
 });
 
 // --- Confetti CSS (inject if not present) ---
 (function addConfettiCSS() {
-    if (document.getElementById('confetti-css')) return;
-    const style = document.createElement('style');
-    style.id = 'confetti-css';
-    style.innerHTML = `
+  if (document.getElementById('confetti-css')) return;
+  const style = document.createElement('style');
+  style.id = 'confetti-css';
+  style.innerHTML = `
     .confetti {
       position: fixed;
       top: -24px;
@@ -181,5 +181,5 @@ setInterval(updateSpotlight, 10000);
       }
     }
   `;
-    document.head.appendChild(style);
-})();
+  document.head.appendChild(style);
+});
