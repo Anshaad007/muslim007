@@ -1,0 +1,310 @@
+{
+  "name": "My workflow",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "voice-upload",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        496,
+        -144
+      ],
+      "name": "Webhook",
+      "id": "addc24b9-f7af-4f37-818a-fee4c179161f",
+      "webhookId": "0b2ef577-ae0b-428e-8ce3-2362f0db9371"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.assemblyai.com/v2/upload",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "ab053084ef714e85a731e6139c37b6a1"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "binaryData",
+        "inputDataFieldName": "audio",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [
+        1120,
+        -128
+      ],
+      "name": "Upload to AssemblyAI",
+      "id": "ee5ef183-4135-4555-bac0-7e1baca18013"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.assemblyai.com/v2/transcript",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer ab053084ef714e85a731e6139c37b6a1"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "audio_url",
+              "value": "={{ $json.upload_url }}"
+            },
+            {
+              "name": "language_code",
+              "value": "ar"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [
+        1296,
+        -144
+      ],
+      "name": "Start Transcription",
+      "id": "3c9dbb4b-92a3-4abb-a312-6b5684f595c4"
+    },
+    {
+      "parameters": {
+        "url": "=https://api.assemblyai.com/v2/transcript/{{ $json.id }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer 7711c9450762434ca84bdbd39da36546"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [
+        1936,
+        -144
+      ],
+      "name": "Get Transcript",
+      "id": "3299135e-742d-4e37-a880-4f8cff639750"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=You are a Quranic assistant. You will be given a partial or complete recitation or quote from the Quran, transcribed from speech recognition. Your job is to identify the verse, return the full ayah, its Surah, ayah number, and Tafsir in two languages.\n\nMake sure:\n- If only part of the ayah was spoken, you return the complete original ayah in Arabic.\n- If multiple ayahs are matched, return all matched ayahs in order.\n- Provide Tafsir from reliable sources in **English and Malayalam**.\n- Output only in **clean JSON format** (no extra words or explanation).\n\nInput Recitation Text:\n\"{{ $json.text }}\"\n\nRespond with the following format:\n\n```json\n{\n  \"ayah_arabic\": \"FULL ayah(s) in Arabic here\",\n  \"surah\": \"Surah Name\",\n  \"ayah_number\": \"Verse number or range\",\n  \"tafsir_english\": \"Meaning or tafsir in English\",\n  \"tafsir_malayalam\": \"Meaning or tafsir in Malayalam\"\n}\n",
+        "hasOutputParser": true,
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2.2,
+      "position": [
+        2160,
+        -144
+      ],
+      "name": "AI Agent",
+      "id": "b245b1df-6f50-4403-bbf1-a08cf05e5f79"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [
+        2464,
+        -80
+      ],
+      "name": "Respond to Webhook",
+      "id": "6ba108f4-71ee-48fc-91cb-0fd699965d15"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        2032,
+        64
+      ],
+      "id": "5c403ffb-2cf5-4de8-afec-15515df4b88d",
+      "name": "Google Gemini Chat Model",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "rdyzwe33c35aIixV",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "write",
+        "fileName": "C:\\temp\\input.webm",
+        "dataPropertyName": "audio",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.readWriteFile",
+      "typeVersion": 1,
+      "position": [
+        704,
+        -144
+      ],
+      "id": "7da94f19-c957-4358-b354-391384a31c8e",
+      "name": "Read/Write Files from Disk"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.executionData",
+      "typeVersion": 1.1,
+      "position": [
+        896,
+        -128
+      ],
+      "id": "6166024a-3bf3-49bc-b34e-77b2f88180dd",
+      "name": "Execution Data"
+    },
+    {
+      "parameters": {
+        "amount": 2
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        1504,
+        -144
+      ],
+      "id": "7d57166c-5d38-4f1c-a7a1-c075ac43b426",
+      "name": "Wait",
+      "webhookId": "20c1a762-6161-4c4f-8521-60de11791ac7"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Read/Write Files from Disk",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Upload to AssemblyAI": {
+      "main": [
+        [
+          {
+            "node": "Start Transcription",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Start Transcription": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Transcript": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Read/Write Files from Disk": {
+      "main": [
+        [
+          {
+            "node": "Execution Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execution Data": {
+      "main": [
+        [
+          {
+            "node": "Upload to AssemblyAI",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "Get Transcript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "c22c02262b2f8184224d23ac524efb0430811efd9da59f5c96b040397b81b30e"
+  },
+  "tags": []
+}
