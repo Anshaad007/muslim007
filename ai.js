@@ -67,7 +67,7 @@ sendBtn.onclick = async () => {
     const blob = await fetch(audioUrl).then(r => r.blob());
     const formData = new FormData();
     formData.append('audio', blob, 'recording.webm');
-    const response = await fetch('http://localhost:5678/webhook/voice-upload', {
+    const response = await fetch('https://anshaad0007.app.n8n.cloud/webhook/voice-upload', {
       method: 'POST',
       body: formData
     });
